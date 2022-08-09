@@ -1,10 +1,5 @@
-package com.redolf.application.backend.service;
+package com.redolf.application.batch.backend.service;
 
-import com.redolf.application.backend.models.Customer;
-import org.springframework.stereotype.Service;
+public class UserService {
 
-@Service
-public interface UserService {
-
-    void saveUser(Customer customer);
 }

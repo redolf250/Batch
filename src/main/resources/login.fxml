@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,27 +13,21 @@
 <?import org.controlsfx.control.HyperlinkLabel?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<AnchorPane id="root" fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#onWindowDragged" onMousePressed="#onMousePressed" prefHeight="500.0" prefWidth="840.0" style="-fx-background-color: white;" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.ibatch.LauncherController">
+<AnchorPane id="root" fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#onWindowDragged" onMousePressed="#onMousePressed" prefHeight="500.0" prefWidth="840.0" style="-fx-background-color: white;" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redolf.application.batch.frontend.controller.Driver">
    <children>
+      <PasswordField fx:id="password_field" alignment="CENTER" layoutX="499.0" layoutY="264.0" prefHeight="35.0" prefWidth="258.0" promptText="password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-style: none;" />
+      <PasswordField fx:id="confirm_pass_field" alignment="CENTER" layoutX="499.0" layoutY="309.0" prefHeight="35.0" prefWidth="258.0" promptText="confirm password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-style: none;" />
       <ProgressIndicator fx:id="login_progress_indicator" layoutX="351.0" layoutY="434.0" />
       <ProgressIndicator fx:id="sign_up_progress_indicator" layoutX="771.0" layoutY="434.0" />
-      <CustomTextField fx:id="username_field" alignment="CENTER" layoutX="498.0" layoutY="177.0" prefHeight="35.0" prefWidth="257.0" promptText="username" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+      <CustomTextField fx:id="username_field" alignment="CENTER" layoutX="498.0" layoutY="176.0" prefHeight="35.0" prefWidth="257.0" promptText="username" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
          <font>
             <Font size="14.0" />
          </font></CustomTextField>
-      <CustomTextField fx:id="email_field" alignment="CENTER" layoutX="498.0" layoutY="234.0" prefHeight="35.0" prefWidth="258.0" promptText="email" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+      <CustomTextField fx:id="email_field" alignment="CENTER" layoutX="498.0" layoutY="220.0" prefHeight="35.0" prefWidth="258.0" promptText="email" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
          <font>
             <Font size="14.0" />
          </font></CustomTextField>
-      <CustomTextField fx:id="password_field" alignment="CENTER" layoutX="498.0" layoutY="290.0" prefHeight="35.0" prefWidth="258.0" promptText="password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
-         <font>
-            <Font size="14.0" />
-         </font></CustomTextField>
-      <CustomTextField fx:id="confirm_pass_field" alignment="CENTER" layoutX="498.0" layoutY="351.0" prefHeight="35.0" prefWidth="258.0" promptText="confirm password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
-         <font>
-            <Font size="14.0" />
-         </font></CustomTextField>
-      <JFXButton fx:id="btn_sign_up" buttonType="RAISED" layoutX="536.0" layoutY="413.0" onAction="#onLeftButtonClick" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 20px;" text="SIGN UP" textFill="WHITE">
+      <JFXButton fx:id="btn_sign_up" buttonType="RAISED" layoutX="536.0" layoutY="413.0" onAction="#createUser" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 20px;" text="SIGN UP" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -60,12 +55,12 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <HyperlinkLabel fx:id="forgot_password" layoutX="115.0" layoutY="355.0" prefHeight="18.0" prefWidth="182.0" text="Forgot  your password ?">
+      <HyperlinkLabel fx:id="forgot_password" layoutX="104.0" layoutY="355.0" prefHeight="18.0" prefWidth="182.0" text="Forgot  your password ?">
          <padding>
             <Insets left="30.0" />
          </padding>
       </HyperlinkLabel>
-      <Pane fx:id="slide_pane" layoutX="-1.0" prefHeight="500.0" prefWidth="420.0" style="-fx-background-color: #42a1f5;">
+      <Pane fx:id="slide_pane" prefHeight="500.0" prefWidth="420.0" style="-fx-background-color: #42a1f5;">
          <children>
             <Label fx:id="welcome_label" alignment="CENTER" layoutX="88.0" layoutY="156.0" prefHeight="51.0" prefWidth="244.0" text="Welcome Back!" textFill="WHITE">
                <font>

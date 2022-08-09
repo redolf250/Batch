@@ -1,15 +1,17 @@
-package com.application.controller;
+package com.redolf.application.batch.frontend.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.application.utils.Window.loadWindow;
+import static com.redolf.application.batch.frontend.utils.Window.loadWindow;
 
+@Component
 public class Help implements Initializable {
 
     @Override

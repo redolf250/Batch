@@ -1,4 +1,9 @@
 package com.redolf.application.batch.backend.repository;
 
-public interface BatchCategoryRepository extends org.springframework.data.jpa.repository.JpaRepository<com.redolf.application.batch.backend.models.BatchCategory, int> {
+import com.redolf.application.batch.backend.models.BatchCategory;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BatchCategoryRepository extends JpaRepository<BatchCategory, Integer> {
 }

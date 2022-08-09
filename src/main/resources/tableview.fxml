@@ -8,56 +8,56 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.controller.TableView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redolf.application.batch.frontend.controller.TableView">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="877.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1027.0">
          <children>
-            <TableView layoutX="14.0" layoutY="352.0" maxHeight="219.0" prefHeight="219.0" prefWidth="423.0">
+            <TableView fx:id="schedule_parameters" layoutX="14.0" layoutY="352.0" maxHeight="219.0" prefHeight="219.0" prefWidth="481.0">
                <columns>
-                  <TableColumn prefWidth="62.399991035461426" text="ID" />
-                  <TableColumn prefWidth="62.399993896484375" text="MIN" />
-                  <TableColumn prefWidth="71.99996948242188" text="HOUR" />
-                  <TableColumn prefWidth="70.39997863769531" text="DOW" />
-                  <TableColumn prefWidth="79.20001220703125" text="DOM" />
-                  <TableColumn prefWidth="90.4000244140625" text="MONTH" />
+                  <TableColumn fx:id="schedule_id" prefWidth="62.399991035461426" text="ID" />
+                  <TableColumn fx:id="minute" prefWidth="72.0" text="MIN" />
+                  <TableColumn fx:id="hour" prefWidth="84.0" text="HOUR" />
+                  <TableColumn fx:id="week_day" prefWidth="83.20002746582031" text="DOW" />
+                  <TableColumn fx:id="day_month" prefWidth="88.0" text="DOM" />
+                  <TableColumn fx:id="month" prefWidth="94.39996337890625" text="MONTH" />
                </columns>
             </TableView>
-            <DatePicker layoutX="106.0" layoutY="14.0" prefHeight="35.0" prefWidth="175.0" promptText="Start date" />
-            <DatePicker editable="false" layoutX="300.0" layoutY="14.0" prefHeight="35.0" prefWidth="175.0" promptText="End date" />
-            <JFXButton fx:id="btn_write" layoutX="494.0" layoutY="13.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #42a1f5;" text="Export" textFill="WHITE">
+            <DatePicker fx:id="start_date" layoutX="181.0" layoutY="15.0" prefHeight="35.0" prefWidth="175.0" promptText="Start date" />
+            <DatePicker fx:id="end_date" editable="false" layoutX="375.0" layoutY="15.0" onAction="#search" prefHeight="35.0" prefWidth="175.0" promptText="End date" />
+            <JFXButton fx:id="btn_export" layoutX="569.0" layoutY="14.0" onAction="#search" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #42a1f5;" text="Export" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btn_write1" layoutX="686.0" layoutY="13.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-radius: 30px; -fx-border-color: #42a1f5; -fx-border-radius: 20px;" text="Send" textFill="#42a1f5">
+            <JFXButton fx:id="btn_send" layoutX="761.0" layoutY="14.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-radius: 30px; -fx-border-color: #42a1f5; -fx-border-radius: 20px;" text="Send" textFill="#42a1f5">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <TableView layoutX="14.0" layoutY="71.0" maxHeight="266.0" prefHeight="259.0" prefWidth="850.0">
+            <TableView fx:id="batch_parameters" layoutX="12.0" layoutY="69.0" maxHeight="266.0" prefHeight="259.0" prefWidth="1003.0">
               <columns>
-                <TableColumn prefWidth="62.399991035461426" text="ID" />
-                <TableColumn prefWidth="72.0" text="MAX" />
-                  <TableColumn prefWidth="73.5999755859375" text="MIN" />
-                  <TableColumn prefWidth="64.80006408691406" text="GS" />
-                  <TableColumn prefWidth="71.20001220703125" text="THD" />
-                  <TableColumn prefWidth="66.4000244140625" text="RTS" />
-                  <TableColumn prefWidth="75.0" text="SP" />
-                  <TableColumn prefWidth="61.60003662109375" text="CPS" />
-                  <TableColumn prefWidth="80.79998779296875" text="MPS" />
-                  <TableColumn prefWidth="72.79998779296875" text="QC" />
-                  <TableColumn prefWidth="72.79998779296875" text="RL" />
-                  <TableColumn prefWidth="72.79998779296875" text="KAS" />
+                <TableColumn fx:id="id" prefWidth="73.60000801086426" text="ID" />
+                <TableColumn fx:id="max_value" prefWidth="78.39998626708984" text="MAX" />
+                  <TableColumn fx:id="min_value" prefWidth="75.19998168945312" text="MIN" />
+                  <TableColumn fx:id="gride_size" prefWidth="76.80000305175781" text="GS" />
+                  <TableColumn fx:id="thread_number" prefWidth="81.60000610351562" text="THD" />
+                  <TableColumn fx:id="skip_rows" prefWidth="93.5999755859375" text="RTS" />
+                  <TableColumn fx:id="skip_policy" prefWidth="87.199951171875" text="SP" />
+                  <TableColumn fx:id="core_pool_size" prefWidth="90.4000244140625" text="CPS" />
+                  <TableColumn fx:id="max_pool_size" prefWidth="87.199951171875" text="MPS" />
+                  <TableColumn fx:id="queue_capacity" prefWidth="79.99993896484375" text="QC" />
+                  <TableColumn fx:id="retry_limit" prefWidth="81.60009765625" text="RL" />
+                  <TableColumn fx:id="keep_alive" minWidth="8.0" prefWidth="91.2000732421875" text="KAS" />
               </columns>
             </TableView>
-            <TableView layoutX="441.0" layoutY="352.0" maxHeight="219.0" prefHeight="219.0" prefWidth="423.0">
+            <TableView fx:id="batch_details" layoutX="507.0" layoutY="352.0" maxHeight="219.0" prefHeight="219.0" prefWidth="511.0">
                <columns>
-                  <TableColumn prefWidth="62.399991035461426" text="ID" />
-                  <TableColumn prefWidth="77.60003662109375" text="SCHEMA" />
-                  <TableColumn prefWidth="56.79998779296875" text="FILE" />
-                  <TableColumn prefWidth="70.39997863769531" text="DATE" />
-                  <TableColumn prefWidth="79.20001220703125" text="TIME" />
-                  <TableColumn prefWidth="90.4000244140625" text="TABLE" />
+                  <TableColumn fx:id="summary_id" prefWidth="62.399991035461426" text="ID" />
+                  <TableColumn fx:id="schema" prefWidth="87.199951171875" text="SCHEMA" />
+                  <TableColumn fx:id="file_type" prefWidth="91.2000732421875" text="FILE TYPE" />
+                  <TableColumn fx:id="date" prefWidth="88.0" text="DATE" />
+                  <TableColumn fx:id="time" prefWidth="88.800048828125" text="TIME" />
+                  <TableColumn fx:id="table" prefWidth="95.2000732421875" text="TABLE" />
                </columns>
             </TableView>
          </children>

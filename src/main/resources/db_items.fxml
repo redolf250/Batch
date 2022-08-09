@@ -5,26 +5,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redolf.application.batch.frontend.controller.DatabaseItems">
    <children>
-      <HBox fx:id="table_header" opacity="0.91" prefHeight="43.0" prefWidth="440.0" styleClass="items" stylesheets="@style.css">
+      <HBox fx:id="table_header" opacity="0.91" prefHeight="43.0" prefWidth="550.0" styleClass="items" stylesheets="@style.css">
          <children>
-            <Label fx:id="db_id" alignment="CENTER" prefHeight="42.0" prefWidth="85.0" text="1">
+            <Label fx:id="db_id" alignment="CENTER" prefHeight="42.0" prefWidth="88.0" text="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="vendor" alignment="CENTER" prefHeight="42.0" prefWidth="114.0" text="MS Sql">
+            <Label fx:id="vendor" alignment="CENTER" prefHeight="42.0" prefWidth="153.0" text="MS Sql">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="db_host" alignment="CENTER" prefHeight="42.0" prefWidth="150.0" text="localhost" wrapText="true">
+            <Label fx:id="db_host" alignment="CENTER" prefHeight="42.0" prefWidth="190.0" text="localhost" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="db_port" alignment="CENTER" prefHeight="42.0" prefWidth="98.0" text="67859">
+            <Label fx:id="db_port" alignment="CENTER" prefHeight="42.0" prefWidth="129.0" text="67859">
                <font>
                   <Font size="14.0" />
                </font>

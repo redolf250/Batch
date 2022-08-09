@@ -1,4 +1,4 @@
-package com.application.utils;
+package com.redolf.application.batch.frontend.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import static com.application.utils.WindowsUtils.FXML_NAME;
+import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME;
 
 public class Window {
 

@@ -1,6 +1,6 @@
 package com.redolf.application.batch.backend.repository;
 
-import com.redolf.application.batch.backend.models.Database;
+import com.redolf.application.batch.backend.models.Datasource_;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,30 +8,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class DatabaseRepositoryTest {
+class DatasourceRepositoryTest {
 
     @Autowired
-    private DatabaseRepository databaseRepository;
+    private DatasourceRepository datasourceRepository;
 
-    private Database database;
+    private Datasource_ datasource;
 
     @BeforeEach
     void setUp() {
-        database = new Database();
-        database.setDatabase_name("MySQL");
-        database.setHostname("localhost");
-        database.setPort(3306);
-        database.setDriver_name("com.mysql.jdbc.Driver");
-        database.setSchema_name("cars");
-        database.setUsername("redolf");
-        database.setPassword("0552588647");
-        database.setUrl("jdbc:mysql://localhost:3306/cars");
-        database.setCreated_at(LocalDate.now());
+        datasource = new Datasource_();
+        datasource.setDatabase_name("MS SQL");
+        datasource.setHostname("localhost");
+        datasource.setPort(7000);
+        datasource.setDriver_name("org.mssql.Driver");
+        datasource.setSchema_name("inventory");
+        datasource.setUsername("redolf");
+        datasource.setPassword("0552588647");
+        datasource.setUrl("jdbc:mysql://localhost:3306/stock");
+        datasource.setCreated_at(LocalDate.now());
     }
 
     @AfterEach
@@ -41,7 +38,7 @@ class DatabaseRepositoryTest {
 
     @Test
     void save(){
-        databaseRepository.save(database);
+        datasourceRepository.save(datasource);
     }
 
 

@@ -1,4 +1,4 @@
-package com.redolf.application.backend.models;
+package com.redolf.application.batch.backend.models;
 
 
 import lombok.AllArgsConstructor;
@@ -15,15 +15,18 @@ import javax.persistence.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "customer")
+@Table(name = "tb_customer")
 @Entity
 public class Customer {
     @Id
     @Column(name = "userId", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false)
     private String username;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String password;
 
 }

@@ -1,4 +1,4 @@
-package com.redolf.application.backend.configs;
+package com.redolf.application.batch.backend.configs;
 
 import org.springframework.context.annotation.Configuration;
 

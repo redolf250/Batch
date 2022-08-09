@@ -10,22 +10,22 @@ import java.time.LocalDate;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class DatabaseTest {
+class DatasourceTest {
 
-    private Database database;
+    private Datasource_ datasource;
     @BeforeEach
     void setUp() {
-        database = new Database();
-        database.setId(120);
-        database.setDatabase_name("MySQL");
-        database.setHostname("localhost");
-        database.setPort(3306);
-        database.setDriver_name("com.mysql.jdbc.Driver");
-        database.setSchema_name("cars");
-        database.setUsername("redolf");
-        database.setPassword("0552588647");
-        database.setUrl("jdbc:mysql://localhost:3306/cars");
-        database.setCreated_at(LocalDate.now());
+        datasource = new Datasource_();
+        datasource.setId(120);
+        datasource.setDatabase_name("MySQL");
+        datasource.setHostname("localhost");
+        datasource.setPort(3306);
+        datasource.setDriver_name("com.mysql.jdbc.Driver");
+        datasource.setSchema_name("cars");
+        datasource.setUsername("redolf");
+        datasource.setPassword("0552588647");
+        datasource.setUrl("jdbc:mysql://localhost:3306/cars");
+        datasource.setCreated_at(LocalDate.now());
     }
 
     @AfterEach
@@ -34,15 +34,15 @@ class DatabaseTest {
 
     @Test
     void getId() {
-        database.getId();
-        assertThat(database.getId())
+        datasource.getId();
+        assertThat(datasource.getId())
                 .isEqualTo(120)
                 .isNotNull();
     }
 
     @Test
     void getDatabase_name() {
-        assertThat(database.getDatabase_name())
+        assertThat(datasource.getDatabase_name())
                 .isEqualTo("MySQL")
                 .contains("M")
                 .endsWith("L")
@@ -51,27 +51,27 @@ class DatabaseTest {
 
     @Test
     void getHostname() {
-        assertThat(database.getHostname())
+        assertThat(datasource.getHostname())
                 .isEqualTo("localhost")
                 .isLowerCase();
     }
 
     @Test
     void getPort() {
-        assertThat(database.getPort())
+        assertThat(datasource.getPort())
                 .isEqualTo(3306)
                 .isBetween(0,3306);
     }
 
     @Test
     void getDriver_name() {
-        assertThat(database.getDriver_name())
+        assertThat(datasource.getDriver_name())
                 .isNotNull();
     }
 
     @Test
     void getUsername() {
-        assertThat(database.getUsername())
+        assertThat(datasource.getUsername())
                 .isEqualTo("redolf")
                 .isLowerCase()
                 .contains("r")
@@ -80,7 +80,7 @@ class DatabaseTest {
 
     @Test
     void getPassword() {
-        assertThat(database.getPassword())
+        assertThat(datasource.getPassword())
                 .isLowerCase()
                 .endsWith("7")
                 .startsWith("0")
@@ -89,20 +89,20 @@ class DatabaseTest {
 
     @Test
     void getSchema_name() {
-        assertThat(database.getSchema_name())
+        assertThat(datasource.getSchema_name())
                 .isNotNull();
     }
 
     @Test
     void getUrl() {
-        assertThat(database.getUrl())
+        assertThat(datasource.getUrl())
                 .startsWith("j")
                 .isLowerCase();
     }
 
     @Test
     void getCreated_at() {
-        assertThat(database.getCreated_at())
+        assertThat(datasource.getCreated_at())
                 .isToday();
     }
 

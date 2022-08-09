@@ -1,4 +1,4 @@
-package com.application.controller;
+package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import org.controlsfx.control.textfield.CustomTextField;
+import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
 public class Home implements Initializable {
 
     @FXML

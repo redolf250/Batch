@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Component
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @Table(name="tb_datasource", uniqueConstraints = {
         @UniqueConstraint(name = "uniqueDatabaseName",columnNames = {"database_name"})
 })
-public class Datasource {
+public class Datasource_ {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -36,6 +37,5 @@ public class Datasource {
     private String schema_name;
     @Column(nullable = false)
     private String url;
-    @Column(nullable = false)
     private LocalDate created_at;
 }

@@ -1,4 +1,4 @@
-package com.application.controller;
+package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -7,14 +7,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import org.kordamp.ikonli.javafx.FontIcon;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.application.utils.WindowsUtils.*;
+import static com.redolf.application.batch.frontend.utils.WindowsUtils.*;
 
+
+@Component
 public class Dashboard implements Initializable {
 
     @FXML
@@ -50,8 +52,7 @@ public class Dashboard implements Initializable {
     @FXML
     private JFXButton btn_settings;
 
-    @FXML
-    private FontIcon close;
+
 
     @FXML
     private Label ibatch_desktop;
@@ -59,11 +60,6 @@ public class Dashboard implements Initializable {
     @FXML
     private Pane left_panel;
 
-    @FXML
-    private FontIcon maximize;
-
-    @FXML
-    private FontIcon minimize;
 
     @FXML
     private StackPane stackpane;
@@ -134,7 +130,7 @@ public class Dashboard implements Initializable {
 
     @FXML
     private void onMinimized(MouseEvent event){
-        minimize(minimize);
+       // minimize(minimize);
     }
 
     @FXML

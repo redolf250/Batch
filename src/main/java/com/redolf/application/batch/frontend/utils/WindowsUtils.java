@@ -1,4 +1,4 @@
-package com.application.utils;
+package com.redolf.application.batch.frontend.utils;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.TranslateTransition;
@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class WindowsUtils{
 
     private static double mouseX = 0;
     private static double mouseY = 0;
-    public static String FXML_NAME = "D:\\project\\work\\parent\\ibatch\\src\\main\\resources\\com\\application\\ibatch\\";
+    public static String FXML_NAME = "D:\\New work\\Batch\\src\\main\\resources\\";
     public static void translateLeft(Pane pane, AnchorPane root){
         TranslateTransition transition = new TranslateTransition(Duration.millis(500),pane);
         transition.setToX(pane.getLayoutX() + (root.getPrefWidth() - pane.getWidth()));
@@ -53,10 +52,10 @@ public class WindowsUtils{
         label_subtext.setText("Enter your personal details and\n start journey with us");
     }
 
-    public static void minimize(FontIcon fontIcon){
-         Stage stage = (Stage) fontIcon.getScene().getWindow();
-         stage.setIconified(true);
-    }
+//    public static void minimize(FontIcon fontIcon){
+//         Stage stage = (Stage) fontIcon.getScene().getWindow();
+//         stage.setIconified(true);
+//    }
 
     public static void drag(MouseEvent event, AnchorPane pane){
         Stage stage = (Stage) pane.getScene().getWindow();

@@ -1,5 +1,6 @@
 package com.redolf.application.batch.frontend.operations;
 
+import com.redolf.application.batch.frontend.DTO.DatabaseData;
 import com.redolf.application.batch.frontend.connection.DbConnection;
 
 import java.sql.Connection;
@@ -9,10 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.redolf.application.batch.backend.queries.Queries.SELECT_ALL_DRIVER_NAME;
-import static com.redolf.application.batch.frontend.operations.DatabaseTable.connection;
+import static com.redolf.application.batch.frontend.operations.DatabaseTable.getData;
 
-public class Helpers {
+public class Helper {
     public static int count(String query) {
         PreparedStatement ps;
         int CSV_VALUE;
@@ -32,14 +32,12 @@ public class Helpers {
         return CSV_VALUE;
     }
 
-    static List<String> data = new ArrayList<>();
+    static List<String> db_drivers = new ArrayList<>();
     public static List<String> getDriverClass() throws SQLException {
-        PreparedStatement ps;
-        ps = connection.prepareStatement(SELECT_ALL_DRIVER_NAME);
-        ResultSet resultSet = ps.executeQuery();
-        while (resultSet.next()) {
-            data.add(resultSet.getString(resultSet.getString(4)));
+        List<DatabaseData> data =  getData();
+        for (DatabaseData items : data) {
+            db_drivers.add(items.getDriver_name());
         }
-        return data;
+        return db_drivers;
     }
 }
