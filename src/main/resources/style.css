@@ -1,0 +1,34 @@
+.side_navigation_item:hover {
+    -fx-background-color:  #3c64ba;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0px 0px 0px 5px;
+}
+
+.items:hover{
+    -fx-border-color: #42a1f5;
+    -fx-border-width: 0px 0px 0px 5px;
+}
+
+.top_pane:hover{
+    -fx-border-color: #42a1f5;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.batch_type_btn:hover{
+    -fx-border-color: #42a1f5;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.batch_type_btn{
+    -fx-border-color: #ec8b23;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.card{
+    -fx-border-radius: 5px;
+}
+
+.pane:hover{
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color: #ededed;
+}

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="645.6" minWidth="1027.0" prefHeight="646.0" prefWidth="877.0" style="-fx-background-color: white;" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redolf.application.batch.frontend.controller.Home">
+   <children>
+      <BorderPane fx:id="borderpane" layoutX="1.0" prefHeight="646.0" prefWidth="877.0" style="-fx-background-color: white;">
+         <top>
+            <HBox fx:id="hearder_hbox" minWidth="1027.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="sucessful_pane" prefHeight="100.0" prefWidth="172.0" style="-fx-background-color: white;" styleClass="top_pane" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css">
+                     <children>
+                        <Label fx:id="sucessful_value" alignment="CENTER" layoutX="7.0" layoutY="15.0" prefHeight="42.0" prefWidth="143.0" text="2000" textFill="#42f55d">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sucessful_text" alignment="CENTER" layoutX="5.0" layoutY="63.0" prefHeight="26.0" prefWidth="162.0" text="Successful Transactions" textFill="#42f55d">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" right="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane fx:id="rollback_pane" prefHeight="100.0" prefWidth="171.0" style="-fx-background-color: white;" styleClass="top_pane">
+                     <children>
+                        <Label fx:id="rollback_value" alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="42.0" prefWidth="143.0" text="2000" textFill="#f54442">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="rollback_text" alignment="CENTER" layoutX="7.0" layoutY="63.0" prefHeight="26.0" prefWidth="155.0" text="Rollback Transactions" textFill="#f54442">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" right="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane fx:id="update_pane" prefHeight="100.0" prefWidth="187.0" style="-fx-background-color: white;" styleClass="top_pane" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css">
+                     <children>
+                        <Label fx:id="update_value" alignment="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="42.0" prefWidth="143.0" text="2000" textFill="#42a1f5">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="update_text" alignment="CENTER" layoutX="9.0" layoutY="63.0" prefHeight="26.0" prefWidth="169.0" text="Scheduled Transactions" textFill="#42a1f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" right="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="100.0" prefWidth="164.0" style="-fx-background-color: white;" styleClass="top_pane" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="42.0" prefWidth="143.0" text="2000" textFill="#f5b142">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="3.0" layoutY="63.0" prefHeight="26.0" prefWidth="155.0" text="Single Resource" textFill="#f5b142">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" right="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="100.0" prefWidth="164.0" style="-fx-background-color: white;" styleClass="top_pane" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="9.0" layoutY="14.0" prefHeight="42.0" prefWidth="143.0" text="2000" textFill="#a442f5">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="2.0" layoutY="64.0" prefHeight="26.0" prefWidth="155.0" text="Multi Resource" textFill="#a442f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" right="5.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="borderpane_content" minWidth="1027.0" prefHeight="546.0" prefWidth="645.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXListView fx:id="listview" layoutX="629.0" layoutY="46.0" prefHeight="486.0" prefWidth="386.0" style="-fx-background-color: white;" />
+                  <AnchorPane layoutX="22.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="286.0">
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="107.57" radius="40.415" spread="0.41" width="56.09">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="332.0" layoutY="197.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="281.0">
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="107.57" radius="40.415" spread="0.41" width="56.09">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="13.0" layoutY="144.0" prefHeight="172.0" prefWidth="290.0">
+                     <children>
+                        <AnchorPane layoutX="4.0" layoutY="4.0" prefHeight="166.0" prefWidth="282.0" style="-fx-background-color: #efefef;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="37.38" radius="15.280000000000001" spread="0.21" width="25.74">
+                                 <color>
+                                    <Color red="0.821052610874176" green="0.8028070330619812" blue="0.8028070330619812" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="143.0" layoutY="69.0" prefHeight="28.0" prefWidth="132.0" text="MySQL">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutY="95.0" prefHeight="70.0" prefWidth="286.0" text="MySQL is one of the popular RDBMS with huge usage" wrapText="true">
+                                 <padding>
+                                    <Insets left="2.0" right="2.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="325.0" layoutY="144.0" prefHeight="172.0" prefWidth="290.0">
+                     <children>
+                        <AnchorPane layoutX="4.0" layoutY="3.0" prefHeight="166.0" prefWidth="282.0" style="-fx-background-color: #efefef;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="37.38" radius="15.280000000000001" spread="0.21" width="25.74">
+                                 <color>
+                                    <Color red="0.821052610874176" green="0.8028070330619812" blue="0.8028070330619812" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="143.0" layoutY="69.0" prefHeight="28.0" prefWidth="132.0" text="MS SQL">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutY="95.0" prefHeight="70.0" prefWidth="286.0" text="MS SQL is one of the popular RDBMS with huge usage" wrapText="true">
+                                 <padding>
+                                    <Insets left="2.0" right="2.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="17.0" layoutY="350.0" prefHeight="166.0" prefWidth="282.0" style="-fx-background-color: #efefef;">
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="37.38" radius="15.280000000000001" spread="0.21" width="25.74">
+                           <color>
+                              <Color red="0.821052610874176" green="0.8028070330619812" blue="0.8028070330619812" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="143.0" layoutY="69.0" prefHeight="28.0" prefWidth="132.0" text="PostgreSQL">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="95.0" prefHeight="70.0" prefWidth="286.0" text="PostgreSQL is one of the popular RDBMS with huge usage" wrapText="true">
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="329.0" layoutY="350.0" prefHeight="166.0" prefWidth="282.0" style="-fx-background-color: #efefef;">
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="37.38" radius="15.280000000000001" spread="0.21" width="25.74">
+                           <color>
+                              <Color red="0.821052610874176" green="0.8028070330619812" blue="0.8028070330619812" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="73.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="143.0" layoutY="69.0" prefHeight="28.0" prefWidth="132.0" text="MariaDB">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="95.0" prefHeight="70.0" prefWidth="286.0" text="MariaDB is one of the popular RDBMS with huge usage" wrapText="true">
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>

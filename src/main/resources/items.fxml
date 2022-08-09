@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="item_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="608.0" styleClass="items" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="43.0" prefWidth="608.0" style="-fx-background-color: white;" styleClass="items" stylesheets="@style.css">
+         <children>
+            <Label fx:id="file_type1" alignment="CENTER" prefHeight="48.0" prefWidth="95.0" stylesheets="@style.css" text="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="file_type" alignment="CENTER" prefHeight="42.0" prefWidth="102.0" stylesheets="@style.css" text="csv">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" alignment="CENTER" prefHeight="42.0" prefWidth="114.0" stylesheets="@style.css" text="11/12/22">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="database" alignment="CENTER" prefHeight="42.0" prefWidth="108.0" stylesheets="@style.css" text="student">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="course" alignment="CENTER" prefHeight="42.0" prefWidth="102.0" stylesheets="@style.css" text="course">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="pass" alignment="CENTER" prefHeight="42.0" prefWidth="102.0" stylesheets="@style.css" text="pass">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

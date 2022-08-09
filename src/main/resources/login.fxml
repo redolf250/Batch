@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.HyperlinkLabel?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane id="root" fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#onWindowDragged" onMousePressed="#onMousePressed" prefHeight="500.0" prefWidth="840.0" style="-fx-background-color: white;" stylesheets="@../../../../../project/work/parent/ibatch/src/main/resources/com/application/ibatch/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.ibatch.LauncherController">
+   <children>
+      <ProgressIndicator fx:id="login_progress_indicator" layoutX="351.0" layoutY="434.0" />
+      <ProgressIndicator fx:id="sign_up_progress_indicator" layoutX="771.0" layoutY="434.0" />
+      <CustomTextField fx:id="username_field" alignment="CENTER" layoutX="498.0" layoutY="177.0" prefHeight="35.0" prefWidth="257.0" promptText="username" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <CustomTextField fx:id="email_field" alignment="CENTER" layoutX="498.0" layoutY="234.0" prefHeight="35.0" prefWidth="258.0" promptText="email" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <CustomTextField fx:id="password_field" alignment="CENTER" layoutX="498.0" layoutY="290.0" prefHeight="35.0" prefWidth="258.0" promptText="password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <CustomTextField fx:id="confirm_pass_field" alignment="CENTER" layoutX="498.0" layoutY="351.0" prefHeight="35.0" prefWidth="258.0" promptText="confirm password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <JFXButton fx:id="btn_sign_up" buttonType="RAISED" layoutX="536.0" layoutY="413.0" onAction="#onLeftButtonClick" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 20px;" text="SIGN UP" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="create_account_label" alignment="CENTER" layoutX="542.0" layoutY="131.0" prefHeight="35.0" prefWidth="174.0" text="Create account" textFill="#42a1f5">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <CustomTextField fx:id="username_sign_in" alignment="CENTER" layoutX="87.0" layoutY="245.0" prefHeight="35.0" prefWidth="244.0" promptText="username" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <CustomTextField fx:id="password_sign_in" alignment="CENTER" layoutX="87.0" layoutY="303.0" prefHeight="35.0" prefWidth="244.0" promptText="password" style="-fx-background-color: #daecff; -fx-background-radius: 10px; -fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none; -fx-border-radius: 10px;">
+         <font>
+            <Font size="14.0" />
+         </font></CustomTextField>
+      <Label fx:id="sign_in_label" alignment="CENTER" layoutX="91.0" layoutY="170.0" prefHeight="35.0" prefWidth="234.0" text="Sign In" textFill="#42a1f5">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_sign_in" buttonType="RAISED" layoutX="116.0" layoutY="391.0" prefHeight="35.0" prefWidth="182.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 20px;" text="SIGN IN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <HyperlinkLabel fx:id="forgot_password" layoutX="115.0" layoutY="355.0" prefHeight="18.0" prefWidth="182.0" text="Forgot  your password ?">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </HyperlinkLabel>
+      <Pane fx:id="slide_pane" layoutX="-1.0" prefHeight="500.0" prefWidth="420.0" style="-fx-background-color: #42a1f5;">
+         <children>
+            <Label fx:id="welcome_label" alignment="CENTER" layoutX="88.0" layoutY="156.0" prefHeight="51.0" prefWidth="244.0" text="Welcome Back!" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="sign_page" layoutX="124.0" layoutY="298.0" onAction="#onRightButtonClick" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 30px; -fx-border-color: white; -fx-border-radius: 20px;" text="SIGN IN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="label_subtext" alignment="CENTER" layoutX="93.0" layoutY="207.0" prefHeight="67.0" prefWidth="234.0" text="To keep connected with us, please login with your credentials" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="to_sign_in_page" layoutX="124.0" layoutY="298.0" onAction="#onLeftButtonClick" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #42a1f5; -fx-background-radius: 30px; -fx-border-color: white; -fx-border-radius: 20px;" text="SIGN UP" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <DropShadow height="65.45" radius="36.9025" spread="0.12" width="84.16">
+         <color>
+            <Color red="0.20000000298023224" green="0.1859259307384491" blue="0.1859259307384491" />
+         </color>
+      </DropShadow>
+   </effect>
+</AnchorPane>

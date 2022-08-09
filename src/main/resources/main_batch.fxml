@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.controller.Batch">
+   <children>
+      <BorderPane fx:id="borderpane" layoutX="338.0" layoutY="223.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="58.0" prefWidth="878.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton prefHeight="42.0" prefWidth="178.0" visible="false">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="single_resource" alignment="CENTER" layoutX="10.0" layoutY="10.0" onAction="#single_resource" prefHeight="42.0" prefWidth="250.0" ripplerFill="#e1d7d7" styleClass="batch_type_btn" stylesheets="@style.css" text="Single-resource">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="multi_resource" alignment="CENTER" layoutX="608.0" layoutY="15.0" onAction="#multi_resource" prefHeight="42.0" prefWidth="250.0" ripplerFill="#e1d7d7" styleClass="batch_type_btn" stylesheets="@style.css" text="Multi-resource">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="576.0" layoutY="15.0" prefHeight="42.0" prefWidth="178.0" text="Button" visible="false">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="main_anchorpane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="stackpane" layoutX="263.0" layoutY="129.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="877.0">
+                           <children>
+                              <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="877.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Pane layoutX="423.0" layoutY="70.0" prefHeight="451.0" prefWidth="440.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutY="-49.0" prefHeight="35.0" prefWidth="440.0" style="-fx-background-color: #d1c7c7;" text="Batch Process Properties">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CustomTextField fx:id="name_field1" layoutX="14.0" layoutY="12.0" prefHeight="35.0" prefWidth="182.0" promptText="Choose file" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field11" layoutX="16.0" layoutY="62.0" prefHeight="35.0" prefWidth="119.0" promptText="Mininum" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field111" layoutX="161.0" layoutY="62.0" prefHeight="35.0" prefWidth="119.0" promptText="Maximum" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field1111" layoutX="307.0" layoutY="62.0" prefHeight="35.0" prefWidth="119.0" promptText="Grid size" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="thread" layoutX="16.0" layoutY="110.0" prefHeight="35.0" prefWidth="140.0" promptText="Number of threads" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="skip" layoutX="170.0" layoutY="110.0" prefHeight="35.0" prefWidth="119.0" promptText="Rows to skip" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field11121" layoutX="307.0" layoutY="110.0" prefHeight="35.0" prefWidth="119.0" promptText="Skip policy" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <ComboBox fx:id="minute" layoutX="16.0" layoutY="307.0" prefHeight="35.0" prefWidth="104.0" promptText="Minute (s)" />
+                                          <ComboBox fx:id="month" layoutX="16.0" layoutY="366.0" prefHeight="35.0" prefWidth="104.0" promptText="Month" />
+                                          <ComboBox fx:id="hours" layoutX="138.0" layoutY="366.0" prefHeight="35.0" prefWidth="86.0" promptText="Hour (s)" />
+                                          <ComboBox fx:id="month_day" layoutX="297.0" layoutY="307.0" prefHeight="35.0" prefWidth="128.0" promptText="Day Of Month" />
+                                          <ComboBox fx:id="week_day" layoutX="145.0" layoutY="307.0" prefHeight="35.0" prefWidth="128.0" promptText="Day Of Week" />
+                                          <Label alignment="CENTER" layoutX="123.0" layoutY="270.0" prefHeight="25.0" prefWidth="182.0" text="Schedule Job Parameters" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Group layoutX="4.0" layoutY="432.0">
+                                             <children>
+                                                <JFXRadioButton fx:id="write" layoutX="12.0" layoutY="-13.0" text="Write">
+                                                   <unSelectedColor>
+                                                      <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                                   </unSelectedColor>
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="read" layoutX="91.0" layoutY="-12.0" text="Read">
+                                                   <unSelectedColor>
+                                                      <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                                   </unSelectedColor>
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </Group>
+                                          <Group layoutX="160.0" layoutY="432.0">
+                                             <children>
+                                                <JFXRadioButton fx:id="schedule_write" layoutX="12.0" layoutY="-11.0" prefHeight="18.0" prefWidth="119.0" text="Schedule Write">
+                                                   <unSelectedColor>
+                                                      <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                                   </unSelectedColor>
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="schedule_read" layoutX="152.0" layoutY="-11.0" prefHeight="18.0" prefWidth="110.0" text="Schedule Read">
+                                                   <unSelectedColor>
+                                                      <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                                   </unSelectedColor>
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </Group>
+                                          <JFXRadioButton fx:id="csv_type" layoutX="280.0" layoutY="373.0" prefHeight="19.0" prefWidth="57.0" text="CSV">
+                                             <unSelectedColor>
+                                                <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                             </unSelectedColor>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton layoutX="368.0" layoutY="373.0" prefHeight="19.0" prefWidth="59.0" text="XML" fx:id="xml_type">
+                                             <unSelectedColor>
+                                                <Color red="0.25882354378700256" green="0.6313725709915161" blue="0.9607843160629272" />
+                                             </unSelectedColor>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                          <CustomTextField fx:id="name_field12" layoutX="245.0" layoutY="12.0" prefHeight="35.0" prefWidth="182.0" promptText="filename" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="thread1" layoutX="15.0" layoutY="162.0" prefHeight="35.0" prefWidth="119.0" promptText="Core pool size" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="skip1" layoutX="161.0" layoutY="162.0" prefHeight="35.0" prefWidth="119.0" promptText="Max pool size" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field111211" layoutX="307.0" layoutY="162.0" prefHeight="35.0" prefWidth="119.0" promptText="Queue capacity" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field1112111" layoutX="16.0" layoutY="217.0" prefHeight="35.0" prefWidth="119.0" promptText="Retry limit" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field11121111" layoutX="151.0" layoutY="217.0" prefHeight="35.0" prefWidth="140.0" promptText="Keep alive seconds" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                          <CustomTextField fx:id="name_field11121112" layoutX="307.0" layoutY="217.0" prefHeight="35.0" prefWidth="119.0" promptText="Table name" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </CustomTextField>
+                                       </children>
+                                    </Pane>
+                                    <CustomTextField fx:id="name_field" layoutX="126.0" layoutY="72.0" prefHeight="35.0" prefWidth="275.0" promptText="name" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </CustomTextField>
+                                    <Label layoutX="23.0" layoutY="73.0" prefHeight="35.0" prefWidth="86.0" text="Name:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CustomTextField fx:id="host_field" layoutX="125.0" layoutY="123.0" prefHeight="35.0" prefWidth="275.0" promptText="host" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </CustomTextField>
+                                    <Label layoutX="22.0" layoutY="124.0" prefHeight="35.0" prefWidth="86.0" text="Host:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CustomTextField fx:id="user_field" layoutX="125.0" layoutY="226.0" prefHeight="35.0" prefWidth="275.0" promptText="username" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </CustomTextField>
+                                    <Label layoutX="22.0" layoutY="226.0" prefHeight="35.0" prefWidth="86.0" text="User:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="password_field" layoutX="126.0" layoutY="282.0" prefHeight="35.0" prefWidth="275.0" promptText="password">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label layoutX="22.0" layoutY="281.0" prefHeight="35.0" prefWidth="86.0" text="Password:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="database_field" layoutX="126.0" layoutY="389.0" prefHeight="35.0" prefWidth="275.0" promptText="database">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label layoutX="22.0" layoutY="389.0" prefHeight="35.0" prefWidth="86.0" text="Database:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="url_field" layoutX="126.0" layoutY="441.0" prefHeight="35.0" prefWidth="275.0" promptText="url">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label layoutX="22.0" layoutY="441.0" prefHeight="35.0" prefWidth="86.0" text="Url:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CustomTextField fx:id="port_field" layoutX="125.0" layoutY="173.0" prefHeight="35.0" prefWidth="275.0" promptText="port" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </CustomTextField>
+                                    <Label layoutX="22.0" layoutY="173.0" prefHeight="35.0" prefWidth="86.0" text="Port:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CustomTextField fx:id="search_field" layoutX="22.0" layoutY="20.0" prefHeight="35.0" prefWidth="282.0" promptText="Search" style="-fx-border-width: 1px; -fx-border-style: none; -fx-border-color: white;">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </CustomTextField>
+                                    <JFXButton fx:id="btn_search" buttonType="RAISED" layoutX="315.0" layoutY="20.0" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #42a1f5;" text="Search" textFill="WHITE">
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fas-search" iconSize="25" layoutX="323.0" layoutY="46.0" />
+                                    <JFXButton fx:id="btn_reset" buttonType="RAISED" layoutX="22.0" layoutY="535.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #42a1f5;" text="Reset" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="btn_read" buttonType="RAISED" layoutX="290.0" layoutY="535.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #42a1f5;" text="Read" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="schedule" buttonType="RAISED" layoutX="423.0" layoutY="535.0" prefHeight="35.0" prefWidth="194.0" style="-fx-background-color: #42a1f5;" text="Schedule Write" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="649.0" layoutY="536.0" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: #42a1f5;" text="Schedule Read" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <Group layoutX="18.0" layoutY="536.0" />
+                                    <Label layoutX="33.0" layoutY="485.0" prefHeight="35.0" prefWidth="152.0" text="   Test connection" textAlignment="JUSTIFY">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fas-plug" iconSize="30" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton fx:id="btn_test_connection" layoutX="23.0" layoutY="488.0" prefHeight="35.0" prefWidth="169.0" ripplerFill="#d7d0d0" text="." textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="btn_write" buttonType="RAISED" layoutX="154.0" layoutY="535.0" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #42a1f5;" text="Write" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <ComboBox fx:id="authentication_type" layoutX="125.0" layoutY="335.0" prefHeight="35.0" prefWidth="275.0" />
+                                    <Label layoutX="20.0" layoutY="335.0" prefHeight="35.0" prefWidth="94.0" text="Driver Class">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

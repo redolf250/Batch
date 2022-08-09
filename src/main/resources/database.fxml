@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="877.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.controller.Database">
+   <children>
+      <CustomTextField fx:id="name_field" layoutX="126.0" layoutY="109.0" prefHeight="35.0" prefWidth="275.0" promptText="name" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;" />
+      <Label layoutX="23.0" layoutY="110.0" prefHeight="35.0" prefWidth="86.0" text="Name:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CustomTextField fx:id="host_field" layoutX="125.0" layoutY="163.0" prefHeight="35.0" prefWidth="275.0" promptText="host" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;" />
+      <Label layoutX="22.0" layoutY="164.0" prefHeight="35.0" prefWidth="86.0" text="Host:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="authentication_type" layoutX="126.0" layoutY="269.0" prefHeight="35.0" prefWidth="275.0" />
+      <Label layoutX="22.0" layoutY="270.0" prefHeight="35.0" prefWidth="94.0" text="Driver Class">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CustomTextField fx:id="user_field" layoutX="125.0" layoutY="323.0" prefHeight="35.0" prefWidth="275.0" promptText="username" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;" />
+      <Label layoutX="22.0" layoutY="323.0" prefHeight="35.0" prefWidth="86.0" text="User:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="password_field" layoutX="126.0" layoutY="379.0" prefHeight="35.0" prefWidth="275.0" promptText="password" />
+      <Label layoutX="22.0" layoutY="379.0" prefHeight="35.0" prefWidth="86.0" text="Password:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="database_field" layoutX="126.0" layoutY="433.0" prefHeight="35.0" prefWidth="275.0" promptText="database" />
+      <Label layoutX="22.0" layoutY="433.0" prefHeight="35.0" prefWidth="86.0" text="Database:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="url_field" layoutX="126.0" layoutY="487.0" prefHeight="35.0" prefWidth="275.0" promptText="url" />
+      <Label layoutX="22.0" layoutY="487.0" prefHeight="35.0" prefWidth="86.0" text="Url:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CustomTextField fx:id="port_field" layoutX="125.0" layoutY="216.0" prefHeight="35.0" prefWidth="275.0" promptText="port" style="-fx-border-width: 1px; -fx-border-color: #daecff; -fx-border-style: none;" />
+      <Label layoutX="22.0" layoutY="216.0" prefHeight="35.0" prefWidth="86.0" text="Port:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CustomTextField fx:id="search_field" layoutX="22.0" layoutY="47.0" prefHeight="35.0" prefWidth="282.0" promptText="Search" style="-fx-border-width: 1px; -fx-border-style: none; -fx-border-color: white;" />
+      <JFXButton fx:id="btn_search" buttonType="RAISED" layoutX="319.0" layoutY="47.0" prefHeight="35.0" prefWidth="78.0" style="-fx-background-color: #42a1f5;" text="Search" textFill="WHITE">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <FontIcon iconColor="WHITE" iconLiteral="fas-search" iconSize="25" layoutX="324.0" layoutY="74.0" />
+      <JFXButton fx:id="btn_reset" buttonType="RAISED" layoutX="22.0" layoutY="592.0" prefHeight="35.0" prefWidth="78.0" style="-fx-background-color: #42a1f5;" text="Reset" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_insert" buttonType="RAISED" layoutX="121.0" layoutY="592.0" prefHeight="35.0" prefWidth="78.0" style="-fx-background-color: #42a1f5;" text="Insert" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="222.0" layoutY="592.0" prefHeight="35.0" prefWidth="78.0" style="-fx-background-color: #42a1f5;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="322.0" layoutY="592.0" prefHeight="35.0" prefWidth="78.0" style="-fx-background-color: #42a1f5;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <Label layoutX="27.0" layoutY="536.0" prefHeight="35.0" prefWidth="152.0" text="   Test connection" textAlignment="JUSTIFY" AnchorPane.leftAnchor="27.0">
+         <graphic>
+            <FontIcon iconLiteral="fas-plug" iconSize="30" />
+         </graphic>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_test_connection" layoutX="18.0" layoutY="538.0" prefHeight="35.0" prefWidth="169.0" ripplerFill="#d7d0d0" text="." textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <HBox fx:id="table_header" layoutX="428.0" layoutY="48.0" opacity="0.91" prefHeight="43.0" prefWidth="440.0" style="-fx-background-color: #d1c7c7;">
+         <children>
+            <Label fx:id="batch_id" alignment="CENTER" prefHeight="42.0" prefWidth="85.0" text=" Id">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="file_type" alignment="CENTER" prefHeight="42.0" prefWidth="133.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" alignment="CENTER" prefHeight="42.0" prefWidth="136.0" text="Host">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="database" alignment="CENTER" prefHeight="42.0" prefWidth="115.0" text="Port">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane layoutX="428.0" layoutY="99.0" prefHeight="526.0" prefWidth="440.0">
+         <children>
+            <ScrollPane fx:id="database_items" prefHeight="526.0" prefWidth="440.0" style="-fx-background-color: white;">
+               <content>
+                  <VBox fx:id="list_items" prefHeight="526.0" prefWidth="438.0" style="-fx-background-color: white;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

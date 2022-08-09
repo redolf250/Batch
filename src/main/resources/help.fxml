@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXBadge?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.controller.Help">
+   <children>
+      <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="646.0" prefWidth="877.0" style="-fx-background-color: white;">
+         <children>
+            <HBox layoutY="82.0" prefHeight="122.0" prefWidth="878.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Pane prefHeight="112.0" prefWidth="186.0" styleClass="pane" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <Group layoutX="64.0" layoutY="24.0">
+                           <children>
+                              <Label prefHeight="29.0" prefWidth="114.0" styleClass="help_page_label" stylesheets="@style.css" text="Getting Started">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Group>
+                        <Label layoutX="63.0" layoutY="53.0" prefHeight="29.0" prefWidth="124.0" text="Take a tour">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fa-rocket" iconSize="50" layoutX="10.0" layoutY="71.0" />
+                     </children>
+                  </Pane>
+                  <JFXBadge />
+                  <Group>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <Pane onMouseClicked="#feedback" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                           <children>
+                              <Label layoutX="73.0" layoutY="27.0" prefHeight="29.0" prefWidth="114.0" text="Feedback">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="73.0" layoutY="52.0" prefHeight="29.0" prefWidth="124.0" text="Submit feedback">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconColor="#42a1f5" iconLiteral="fa-comment-o" iconSize="50" layoutX="14.0" layoutY="68.0" text="" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Group>
+                  <Pane layoutX="229.0" layoutY="10.0" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="74.0" layoutY="35.0" prefHeight="29.0" prefWidth="105.0" text="Support">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="73.0" layoutY="59.0" prefHeight="29.0" prefWidth="114.0" text="Contact for support">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fa-support" iconSize="50" layoutX="14.0" layoutY="76.0" text="" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox layoutY="261.0" prefHeight="122.0" prefWidth="878.0">
+               <children>
+                  <Pane fx:id="account" onMouseClicked="#account" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label layoutX="64.0" layoutY="24.0" prefHeight="29.0" prefWidth="114.0" text="Account" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="63.0" layoutY="53.0" prefHeight="29.0" prefWidth="124.0" text="Edit account details" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fas-user" iconSize="50" layoutX="7.0" layoutY="70.0" />
+                     </children>
+                  </Pane>
+                  <JFXBadge />
+                  <Pane layoutX="22.0" layoutY="10.0" onMouseClicked="#about" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="67.0" layoutY="24.0" prefHeight="29.0" prefWidth="114.0" text="About">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="65.0" layoutY="53.0" prefHeight="29.0" prefWidth="124.0" text="About the software">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fa-code" iconSize="50" layoutX="7.0" layoutY="70.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane layoutX="229.0" layoutY="10.0" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="79.0" layoutY="29.0" prefHeight="29.0" prefWidth="105.0" text="Developers">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="74.0" layoutY="53.0" prefHeight="29.0" prefWidth="114.0" text=" Contact">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fab-dev" iconSize="50" layoutX="19.0" layoutY="71.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox layoutX="-2.0" layoutY="441.0" prefHeight="122.0" prefWidth="878.0">
+               <children>
+                  <Pane prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label layoutX="68.0" layoutY="27.0" prefHeight="29.0" prefWidth="114.0" text="Updates">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="68.0" layoutY="53.0" prefHeight="29.0" prefWidth="114.0" text="Check for updates">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fa-refresh" iconSize="50" layoutX="13.0" layoutY="70.0" />
+                     </children>
+                  </Pane>
+                  <JFXBadge />
+                  <Pane layoutX="22.0" layoutY="10.0" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="67.0" layoutY="24.0" prefHeight="29.0" prefWidth="114.0" text="Contribute">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="65.0" layoutY="52.0" prefHeight="50.0" prefWidth="124.0" text="Contribute to the development" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="fas-layer-group" iconSize="50" layoutX="7.0" layoutY="70.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane layoutX="229.0" layoutY="10.0" prefHeight="134.0" prefWidth="196.0" styleClass="pane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="79.0" layoutY="29.0" prefHeight="29.0" prefWidth="105.0" text="API">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="74.0" layoutY="53.0" prefHeight="29.0" prefWidth="114.0" text="Documentation">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <FontIcon iconColor="#42a1f5" iconLiteral="far-file" iconSize="50" layoutX="19.0" layoutY="71.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
