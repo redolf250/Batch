@@ -2,34 +2,31 @@ package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
-import com.redolf.application.batch.backend.models.Datasource_;
-import com.redolf.application.batch.backend.service.DatasourceService;
-import com.redolf.application.batch.frontend.utils.DialogUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.redolf.application.batch.backend.service.DatasourceService.queryById;
 import static com.redolf.application.batch.frontend.utils.DialogUtils.*;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.loadFxml;
 
 @Component
 public class Batch extends Database implements Initializable {
-
 
     @FXML
     private AnchorPane anchorpane;
@@ -175,6 +172,11 @@ public class Batch extends Database implements Initializable {
     @FXML
     private JFXRadioButton xml_type;
 
+    File selectedFile = null;
+
+    private final String CSV_FILE = "csv";
+    private final String XML_FILE = "xml";
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -188,5 +190,28 @@ public class Batch extends Database implements Initializable {
     @FXML
     private void  multi_resource(ActionEvent event) throws IOException {
         loadFxml(stackpane,FXML_NAME+"multi_batch.fxml");
+    }
+
+    @FXML
+    private void showOpenDialog(MouseEvent event){
+        selectedFile();
+    }
+
+    public void selectedFile(){
+        chosefile.setOnMouseClicked(event -> {
+            FileChooser chooser = new FileChooser();
+            selectedFile = chooser.showOpenDialog(null);
+            if (selectedFile==null){
+                showDialog(stackpane,pane,CHOOSE_FILE,HEADING);
+            }else if(selectedFile.getName().endsWith(CSV_FILE) == true || selectedFile.getName().endsWith(XML_FILE) == true){
+                chosefile.setText(selectedFile.getName());
+                System.out.println(selectedFile.getAbsolutePath());
+                System.out.println(selectedFile.getName());
+                System.out.println(selectedFile.getPath());
+                System.out.println(selectedFile.getName().endsWith("mp4"));
+            }else {
+                showDialog(stackpane,pane,BAD_FILE_FORMAT,HEADING);
+            }
+        });
     }
 }
