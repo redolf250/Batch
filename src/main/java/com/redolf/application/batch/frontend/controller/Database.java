@@ -170,8 +170,7 @@ public class Database implements Initializable {
     }
 
     @FXML
-    private void clearFields(){
-
+    void clearFields(){
         List<CustomTextField> fields =  fieldsList();;
         for (CustomTextField field: fields) {
             field.clear();
@@ -180,7 +179,6 @@ public class Database implements Initializable {
         name_field.clear();
         search_field.clear();
         url_field.clear();
-
     }
 
     private List<CustomTextField> fieldsList() {
@@ -202,7 +200,11 @@ public class Database implements Initializable {
     }
 
     @FXML
-    private void search(ActionEvent event){
+    void search(ActionEvent event){
+        queryForDatasource();
+    }
+
+    public void queryForDatasource() {
         if (search_field.getText().isEmpty()){
             DialogUtils.showDialog(stackpane,pane,SEARCH_CONTENT,HEADING);
         }else {
