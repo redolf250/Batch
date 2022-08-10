@@ -2,6 +2,9 @@ package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import com.redolf.application.batch.backend.models.Datasource_;
+import com.redolf.application.batch.backend.service.DatasourceService;
+import com.redolf.application.batch.frontend.utils.DialogUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,20 +19,23 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.redolf.application.batch.backend.service.DatasourceService.queryById;
+import static com.redolf.application.batch.frontend.utils.DialogUtils.*;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.loadFxml;
 
 @Component
-public class Batch implements Initializable {
+public class Batch extends Database implements Initializable {
 
 
     @FXML
     private AnchorPane anchorpane;
 
     @FXML
-    private ComboBox<?> authentication_type;
+    private ComboBox<String> driver_class;
 
     @FXML
     private BorderPane borderpane;
@@ -62,7 +68,7 @@ public class Batch implements Initializable {
     private JFXRadioButton csv_type;
 
     @FXML
-    private PasswordField database_field;
+    private CustomTextField database_field;
 
     @FXML
     private ToggleGroup file;
@@ -155,7 +161,7 @@ public class Batch implements Initializable {
     private CustomTextField thread;
 
     @FXML
-    private PasswordField url_field;
+    private CustomTextField url_field;
 
     @FXML
     private CustomTextField user_field;
