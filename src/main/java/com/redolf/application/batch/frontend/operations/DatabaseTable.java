@@ -2,7 +2,6 @@ package com.redolf.application.batch.frontend.operations;
 
 import com.redolf.application.batch.frontend.DTO.DatabaseData;
 import com.redolf.application.batch.frontend.connection.DbConnection;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -48,7 +47,6 @@ public class DatabaseTable {
                     resultSet.getString(4),resultSet.getString(5), resultSet.getString(6),resultSet.getString(7),
                     resultSet.getString(8),resultSet.getString(9),resultSet.getString(10)));
         }
-        System.out.println("Updated result set");
         return data;
     }
 }
