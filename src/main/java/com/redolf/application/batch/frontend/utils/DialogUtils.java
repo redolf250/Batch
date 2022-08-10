@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 
 public class DialogUtils {
 
+    public static String CHOOSE_FILE="Resource must be selected to run\nbatch job! ";
     public static String HEADING = "Alert";
     public static String SEARCH_CONTENT = "Search field cannot be empty";
 
@@ -26,6 +27,8 @@ public class DialogUtils {
     public static String DATASOURCE_NOT_FOUND = "Datasource with such ID is not found";
 
     public static String DATASOURCE_UPDATE = "Datasource properties successfully updated";
+
+    public static String BAD_FILE_FORMAT = "Resource file format is invalid!";
 
     public static void showDialog(StackPane stackPane, AnchorPane anchorPane, String content, String heading) {
         BoxBlur boxBlur=new BoxBlur(10,10,2);
