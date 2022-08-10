@@ -117,4 +117,8 @@ public class DatasourceService {
         return list;
     }
 
+    public void saveWriteBatchJobProperties(){
+
+    }
+
 }
