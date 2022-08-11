@@ -30,6 +30,10 @@ public class DialogUtils {
 
     public static String BAD_FILE_FORMAT = "Resource file format is invalid!";
 
+    public static String SOME_FIELD_CANNOT_BE_EMPTY = "Some fields cannot be empty!";
+
+    public static String BATCH_COMPLETED = "Batch job completed successfully!";
+
     public static void showDialog(StackPane stackPane, AnchorPane anchorPane, String content, String heading) {
         BoxBlur boxBlur=new BoxBlur(10,10,2);
         JFXDialogLayout layout=new JFXDialogLayout();
