@@ -301,7 +301,6 @@ public class Batch extends Database implements Initializable {
             if (number==1){
                 startSingleResourceJob();
             }else if (number==2){
-
             }
         }
     }
