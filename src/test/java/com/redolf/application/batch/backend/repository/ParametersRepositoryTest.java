@@ -80,7 +80,7 @@ class ParametersRepositoryTest {
         summary.setTable_name("courses");
 
         schedule = new Schedule();
-        schedule.setSchedule_parameters(parameters);
+        schedule.setParameters(parameters);
         schedule.setDay_of_month(7);
         schedule.setDay_of_week("Monday");
         schedule.setHours(2);
