@@ -31,18 +31,18 @@ public class Parameters {
     private Long keep_alive_time;
     private LocalDate date;
 
-    @OneToOne(mappedBy = "parameters")
+    @OneToOne(mappedBy = "parameters",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Summary summary;
 
-    @OneToOne(mappedBy = "schedule_parameters")
+    @OneToOne(mappedBy = "parameters",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Schedule schedule;
 
-    @OneToOne(mappedBy = "parameters")
+    @OneToOne(mappedBy = "parameters",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Types type;
 
-    @OneToOne(mappedBy = "parameters")
+    @OneToOne(mappedBy = "parameters",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Status status;
 
-    @OneToOne(mappedBy = "parameters")
+    @OneToOne(mappedBy = "parameters",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private BatchCategory category;
 }

@@ -19,6 +19,7 @@ public class Types {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Operation operation;
-    @OneToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Parameters parameters;
 }

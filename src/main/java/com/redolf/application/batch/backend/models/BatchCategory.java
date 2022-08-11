@@ -19,6 +19,6 @@ public class BatchCategory {
     private int category_id;
     private String category_name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Parameters parameters;
 }

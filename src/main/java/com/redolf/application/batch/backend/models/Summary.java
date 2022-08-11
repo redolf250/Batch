@@ -26,6 +26,6 @@ public class Summary {
     private LocalDate date;
     private LocalTime time;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     private Parameters parameters;
 }

@@ -19,6 +19,6 @@ public class Status {
     private int status_id;
     private String status;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     private Parameters parameters;
 }

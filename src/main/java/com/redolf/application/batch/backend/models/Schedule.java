@@ -26,6 +26,6 @@ public class Schedule {
     private String day_of_week;
     private int day_of_month;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Parameters schedule_parameters;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Parameters parameters;
 }
