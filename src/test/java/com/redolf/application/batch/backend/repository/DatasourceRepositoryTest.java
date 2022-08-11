@@ -20,9 +20,9 @@ class DatasourceRepositoryTest {
     @BeforeEach
     void setUp() {
         datasource = new Datasource_();
-        datasource.setDatabase_name("MS SQL");
+        datasource.setDatabase_name("MySQL");
         datasource.setHostname("localhost");
-        datasource.setPort(7000);
+        datasource.setPort(3306);
         datasource.setDriver_name("org.mssql.Driver");
         datasource.setSchema_name("inventory");
         datasource.setUsername("redolf");
