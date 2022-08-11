@@ -1,6 +1,6 @@
 package com.redolf.application.batch.backend.service;
 
-import com.redolf.application.batch.backend.models.Datasource_;
+import com.redolf.application.batch.backend.models.*;
 import com.redolf.application.batch.frontend.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -117,8 +117,58 @@ public class DatasourceService {
         return list;
     }
 
-    public void saveWriteBatchJobProperties(){
-
+    public static void saveWriteBatchJobParameters(Parameters parameters){
+        Transaction transaction;
+        try (Session session = ParameterService.getSessionFactoryForParameters().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(parameters);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    public static void saveWriteBatchJobSummary(Summary summary){
+        Transaction transaction;
+        try (Session session = ParameterService.getSessionFactoryForParameters().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(summary);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveWriteBatchStatus(Status status){
+        Transaction transaction;
+        try (Session session = ParameterService.getSessionFactoryForParameters().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(status);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveWriteBatchTypes(Types types){
+        Transaction transaction;
+        try (Session session = ParameterService.getSessionFactoryForParameters().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(types);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveWriteBatchCategory(BatchCategory category){
+        Transaction transaction;
+        try (Session session = ParameterService.getSessionFactoryForParameters().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(category);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
