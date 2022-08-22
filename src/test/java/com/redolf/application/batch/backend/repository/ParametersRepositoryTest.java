@@ -1,9 +1,7 @@
 package com.redolf.application.batch.backend.repository;
 
-import com.redolf.application.batch.backend.models.*;
 import com.redolf.application.batch.frontend.enums.Operation;
-import javafx.animation.Animation;
-import org.assertj.core.api.Assertions;
+import com.redolf.application.batch.frontend.models.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

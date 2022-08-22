@@ -2,8 +2,9 @@ package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
-import com.redolf.application.batch.backend.models.*;
+import com.redolf.application.batch.backend.configs.parameters.JobValues;
 import com.redolf.application.batch.frontend.enums.Operation;
+import com.redolf.application.batch.frontend.models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.springframework.stereotype.Component;
 
@@ -30,16 +33,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.redolf.application.batch.backend.service.DatasourceService.*;
+import static com.redolf.application.batch.frontend.service.DatasourceService.*;
 import static com.redolf.application.batch.frontend.utils.DialogUtils.*;
+import static com.redolf.application.batch.frontend.utils.DirectoryCreator.createFile;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.loadFxml;
+import static com.redolf.application.batch.frontend.validation.Validation.*;
 
 @Component
 public class Batch extends Database implements Initializable {
 
     @FXML
     private AnchorPane anchorpane;
+
+    @FXML
+    private JFXButton btn_init;
 
     @FXML
     private ComboBox<String> driver_class;
@@ -185,8 +193,10 @@ public class Batch extends Database implements Initializable {
     @FXML
     private Label scene_number;
 
-    private File selectedFile = null;
+    public static File selectedFile = null;
     private Parameters parameters = null;
+
+    public static String filePath = null;
     private Summary summary = null;
 
     private Status status = null;
@@ -195,8 +205,11 @@ public class Batch extends Database implements Initializable {
 
     private BatchCategory category = null;
 
-    private final String CSV_FILE = "csv";
-    private final String XML_FILE = "xml";
+    public static JobValues values = new JobValues();
+    public static final String CSV_FILE = "csv";
+    public static final String XML_FILE = "xml";
+    public static int chunkSize;
+    public static String getFile;
 
     ObservableList<Integer> minutes = FXCollections.observableArrayList(getMinutes());
 
@@ -272,37 +285,85 @@ public class Batch extends Database implements Initializable {
         selectedFile();
     }
 
+
     private void selectedFile(){
         chosefile.setOnMouseClicked(event -> {
             FileChooser chooser = new FileChooser();
             selectedFile = chooser.showOpenDialog(null);
             if (selectedFile==null){
                 showDialog(stackpane,pane,CHOOSE_FILE,HEADING);
-            }else if(selectedFile.getName().endsWith(CSV_FILE) == true || selectedFile.getName().endsWith(XML_FILE) == true){
+            }else if(selectedFile.getName().endsWith(CSV_FILE) || selectedFile.getName().endsWith(XML_FILE)){
                 chosefile.setText(selectedFile.getName());
-                System.out.println(selectedFile.getAbsolutePath());
-                System.out.println(selectedFile.getName());
-                System.out.println(selectedFile.getPath());
-                System.out.println(selectedFile.getName().endsWith("mp4"));
             }else {
                 showDialog(stackpane,pane,BAD_FILE_FORMAT,HEADING);
             }
         });
     }
 
-
     @FXML
-    private void writeBatchJob(){
+    private void showSaveDialog(MouseEvent event){
 
-        int number = Integer.parseInt(scene_number.getText());
-        if(name_field.getText().isEmpty() && chosefile.getText().isEmpty()){
-            showDialog(stackpane,pane,SOME_FIELD_CANNOT_BE_EMPTY,HEADING);
-        }else {
-            if (number==1){
-                startSingleResourceJob();
-            }else if (number==2){
+    }
+    private void saveFile(){
+        savefilname.setOnMouseClicked(event -> {
+            FileChooser chooser = new FileChooser();
+            File s = chooser.showSaveDialog(null);
+        });
+    }
+
+    public void getValues(){
+            if (keepalivetime.getText().equals("") && !fieldChecker(keepalivetime, VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (queueCapacity.getText().equals("") && !fieldChecker(queueCapacity,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (gridesize.getText().equals("")  && !fieldChecker(gridesize,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (corepoolsize.getText().equals("")  && !fieldChecker(corepoolsize,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (maxcimum.getText().equals("")  && !fieldChecker(maxcimum,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (skip_policy.getText().equals("")  && !fieldChecker(skip_policy, VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (minimum.getText().equals("")  && !fieldChecker(minimum,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (maxpoolsize.getText().equals("")  && !fieldChecker(maxpoolsize,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (retry_limit.getText().equals("")  && !fieldChecker(retry_limit,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if (rows_to_skip.getText().equals("") && !fieldChecker(rows_to_skip,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else if(chosefile.getText().equals("")  && !fieldChecker(chosefile,VALIDATE_DIGITS)){
+                showDialog(stackpane,pane,ALL_VARIABLES,HEADING);
+            }else{
+                values.setAlive_time(Long.valueOf(keepalivetime.getText().trim()));
+                values.setCapacity_field(Long.valueOf(queueCapacity.getText().trim()));
+                values.setGride_field(Long.valueOf(gridesize.getText().trim()));
+                values.setCore_size_field(Long.valueOf(corepoolsize.getText().trim()));
+                values.setMaximum_field(Long.valueOf(maxcimum.getText().trim()));
+                values.setSkip_policy_field(Integer.valueOf(skip_policy.getText().trim()));
+                values.setMinimum_field(Long.valueOf(minimum.getText().trim()));
+                values.setMax_pool_size(Long.valueOf(maxpoolsize.getText().trim()));
+                values.setThread_field(computeThreads());
+                values.setRetry_limit_field(Long.valueOf(retry_limit.getText().trim()));
+                values.setRows_to_skip_field(Integer.valueOf(rows_to_skip.getText().trim()));
+                showDialog(stackpane,pane, VALUES_TRANSMITTED,CONFIRM);
             }
-        }
+    }
+
+    private void writeJob() throws IOException {
+        OkHttpClient httpClient = new OkHttpClient();
+        Request request = new  Request.Builder()
+                .url("http://localhost:9000/jobs/importCustomers")
+                .build();
+        httpClient.newCall(request).execute();
+    }
+
+    private void exportDataToCSV() throws IOException {
+        OkHttpClient httpClient = new OkHttpClient();
+        Request request = new  Request.Builder()
+                .url("http://localhost:9000/jobs/exportDataToCSV")
+                .build();
+        httpClient.newCall(request).execute();
     }
 
     private void startSingleResourceJob() {
@@ -333,8 +394,6 @@ public class Batch extends Database implements Initializable {
         summary.setDate(LocalDate.now());
         if (csv_type.isSelected()){
             summary.setFile_type("CSV");
-        }else if(xml_type.isSelected()){
-            summary.setFile_type("XML");
         }else{
             summary.setFile_type("CSV");
         }
@@ -342,14 +401,11 @@ public class Batch extends Database implements Initializable {
         status = new Status();
         status.setParameters(parameters);
         status.setStatus("SUCCESSFUL");
-
         types = new Types();
         types.setParameters(parameters);
-        if (write.isSelected()){
+        if (write.isSelected()) {
             types.setOperation(Operation.WRITE);
-        }else if(read.isSelected()) {
-            types.setOperation(Operation.READ);
-        }else {
+        }else{
             types.setOperation(Operation.WRITE);
         }
 
@@ -362,7 +418,32 @@ public class Batch extends Database implements Initializable {
         saveWriteBatchStatus(status);
         saveWriteBatchTypes(types);
         saveWriteBatchCategory(category);
-        showDialog(stackpane,pane,BATCH_COMPLETED,CONFIRM);
+    }
+
+    @FXML
+    private void writeBatchJob() throws IOException {
+        int number = Integer.parseInt(scene_number.getText());
+        if(name_field.getText().isEmpty() && chosefile.getText().isEmpty()){
+            showDialog(stackpane,pane,SOME_FIELD_CANNOT_BE_EMPTY,HEADING);
+        }else {
+            if (number==1){
+                if (csv_type.isSelected()){
+                    try {
+                        chunkSize = Math.round(values.getMaximum_field()/values.getGride_field() + 1);
+                        getFile = selectedFile.getAbsolutePath();
+                        startSingleResourceJob();
+                        showDialog(stackpane,pane,BATCH_COMPLETED,CONFIRM);
+                        writeJob();
+                        }catch (Exception e){
+                    }
+                }else if(xml_type.isSelected()){
+                    writeXMLToDB();
+                }
+
+            }else if (number==2){
+                System.out.println("Not implemented yet");
+            }
+        }
     }
 
     private void validate(){
@@ -377,7 +458,7 @@ public class Batch extends Database implements Initializable {
         }
     }
 
-    private List<CustomTextField> fieldsList(){
+    public List<CustomTextField> fieldsList(){
         List<CustomTextField> fields = new ArrayList<>();
         fields.add(minimum);
         fields.add(maxcimum);
@@ -390,7 +471,7 @@ public class Batch extends Database implements Initializable {
         fields.add(keepalivetime);
         fields.add(rows_to_skip);
         fields.add(retry_limit);
-        fields.add(tablename);
+        //fields.add(tablename);
         fields.add(name_field);
         return fields;
     }
@@ -407,5 +488,42 @@ public class Batch extends Database implements Initializable {
         for (CustomTextField field: fields) {
             field.clear();
         }
+    }
+
+    @FXML
+    private void initValues(ActionEvent event) throws IOException {
+        if (write.isSelected()){
+            getValues();
+            thread.setText(String.valueOf(values.getThread_field()));
+            showDialog(stackpane,pane,VALUES_TRANSMITTED,CONFIRM);
+        }else if(read.isSelected() && savefilname.getText().trim() != null){
+            filePath = createFile(savefilname.getText().trim());
+            showDialog(stackpane,pane,VALUES_TRANSMITTED,CONFIRM);
+        }else if(!write.isSelected() || !read.isSelected()){
+            showDialog(stackpane,pane,BATCH_TYPE_SELECT,HEADING);
+        }
+    }
+
+    @FXML
+    private void startReadJob(ActionEvent event) throws IOException {
+        if (!savefilname.getText().trim().isEmpty()){
+            if (filePath.endsWith(CSV_FILE) || filePath.endsWith(XML_FILE)){
+                exportDataToCSV();
+                showDialog(stackpane,pane,READ_JOB_DONE+filePath,CONFIRM);
+            }else{
+                showDialog(stackpane,pane,UNSUPPORTED_FILE_FORMAT,HEADING);
+            }
+        }else {
+            showDialog(stackpane,pane,FILE_TO_SAVE,HEADING);
+        }
+    }
+
+    private int computeThreads(){
+        int result = (int) (values.getMaximum_field()/values.getGride_field());
+        return result;
+    }
+
+    private void writeXMLToDB(){
+        System.out.println("Yet to implements");
     }
 }

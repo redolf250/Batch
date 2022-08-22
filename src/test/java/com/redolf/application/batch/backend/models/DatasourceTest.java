@@ -1,5 +1,6 @@
 package com.redolf.application.batch.backend.models;
 
+import com.redolf.application.batch.frontend.models.Datasource_;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

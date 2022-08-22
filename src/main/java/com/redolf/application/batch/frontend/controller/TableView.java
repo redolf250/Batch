@@ -24,8 +24,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
-import static com.redolf.application.batch.backend.queries.Queries.*;
-import static com.sun.org.glassfish.external.statistics.impl.StatisticImpl.START_TIME;
+import static com.redolf.application.batch.frontend.queries.Queries.*;
 
 public class TableView implements Initializable {
 

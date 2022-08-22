@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 @Component
 public class Validation {
 
+    public static final String VALIDATE_DIGITS = "[0-9]+";
     public static final String USERNAME_PATTERN = "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
 
     /*
@@ -37,7 +38,7 @@ public class Validation {
         Pattern pattern= Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
         Matcher matcher=pattern.matcher(textField.getText().trim());
 
-        return matcher.find();
+        return matcher.matches();
 
     }
 
@@ -59,8 +60,6 @@ public class Validation {
     }
 
     public static boolean compareField(TextField password, TextField confirm){
-        if(password.getText().equals(confirm.getText()))
-            return true;
-        return false;
+        return password.getText().equals(confirm.getText());
     }
 }

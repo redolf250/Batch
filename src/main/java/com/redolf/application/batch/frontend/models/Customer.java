@@ -1,4 +1,4 @@
-package com.redolf.application.batch.backend.models;
+package com.redolf.application.batch.frontend.models;
 
 
 import lombok.AllArgsConstructor;

@@ -1,7 +1,6 @@
-package com.redolf.application.batch.backend.service;
+package com.redolf.application.batch.frontend.service;
 
-import com.redolf.application.batch.backend.models.*;
-import com.redolf.application.batch.frontend.utils.HibernateUtil;
+import com.redolf.application.batch.frontend.models.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

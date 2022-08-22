@@ -1,4 +1,4 @@
-package com.redolf.application.batch.backend.queries;
+package com.redolf.application.batch.frontend.queries;
 
 public class Queries {
     public static String SELECT_ALL_PARAMETERS = "select * from tb_batch_parameters";

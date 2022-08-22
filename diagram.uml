@@ -5,9 +5,13 @@
   <nodes />
   <notes />
   <edges />
-  <settings layout="Hierarchic Compact" zoom="1.0" showDependencies="false" x="0.0" y="0.0" />
+  <settings layout="Hierarchic Compact" zoom="1.5" showDependencies="true" x="9.5" y="9.5" />
   <SelectedNodes />
-  <Categories />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>

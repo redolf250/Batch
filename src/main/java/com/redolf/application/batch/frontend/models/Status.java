@@ -1,6 +1,5 @@
-package com.redolf.application.batch.backend.models;
+package com.redolf.application.batch.frontend.models;
 
-import com.redolf.application.batch.frontend.enums.Operation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +12,12 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="tb_operations")
-public class Types {
+@Table(name="tb_status")
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private Operation operation;
+    private int status_id;
+    private String status;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Parameters parameters;

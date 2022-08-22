@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.*;
 
-
 @Component
 public class Dashboard implements Initializable {
 

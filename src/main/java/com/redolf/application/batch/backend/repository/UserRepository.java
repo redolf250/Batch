@@ -1,6 +1,6 @@
 package com.redolf.application.batch.backend.repository;
 
-import com.redolf.application.batch.backend.models.Customer;
+import com.redolf.application.batch.frontend.models.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

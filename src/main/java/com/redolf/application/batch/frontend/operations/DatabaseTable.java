@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.redolf.application.batch.backend.queries.Queries.SELECT_ALL_DATASOURCE;
+import static com.redolf.application.batch.frontend.queries.Queries.SELECT_ALL_DATASOURCE;
 
 @Component
 public class DatabaseTable {

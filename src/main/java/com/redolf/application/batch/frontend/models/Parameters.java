@@ -1,6 +1,5 @@
-package com.redolf.application.batch.backend.models;
+package com.redolf.application.batch.frontend.models;
 
-import com.redolf.application.batch.frontend.enums.Operation;
 import lombok.*;
 
 import javax.persistence.*;

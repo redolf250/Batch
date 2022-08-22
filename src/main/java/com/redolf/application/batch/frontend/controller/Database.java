@@ -1,8 +1,8 @@
 package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.redolf.application.batch.backend.models.Datasource_;
-import com.redolf.application.batch.backend.service.DatasourceService;
+import com.redolf.application.batch.frontend.models.Datasource_;
+import com.redolf.application.batch.frontend.service.DatasourceService;
 import com.redolf.application.batch.frontend.DTO.DatabaseData;
 import com.redolf.application.batch.frontend.operations.DatabaseTable;
 import com.redolf.application.batch.frontend.operations.Helper;
@@ -26,13 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.redolf.application.batch.backend.service.DatasourceService.findByName;
-import static com.redolf.application.batch.backend.service.DatasourceService.queryById;
+import static com.redolf.application.batch.frontend.service.DatasourceService.findByName;
+import static com.redolf.application.batch.frontend.service.DatasourceService.queryById;
 import static com.redolf.application.batch.frontend.utils.DialogUtils.*;
 
 public class Database implements Initializable {
     Datasource_ datasource = new Datasource_();
-    private DatasourceService service = new DatasourceService();
+    private final DatasourceService service = new DatasourceService();
 
     @FXML
     private StackPane stackpane;
@@ -171,7 +171,7 @@ public class Database implements Initializable {
 
     @FXML
     void clearFields(){
-        List<CustomTextField> fields =  fieldsList();;
+        List<CustomTextField> fields =  fieldsList();
         for (CustomTextField field: fields) {
             field.clear();
         }
@@ -196,6 +196,7 @@ public class Database implements Initializable {
             showDialog(stackpane,pane,INVALID_OPERATION,HEADING);
         }else {
             DatasourceService.delete(Integer.parseInt(search_field.getText()));
+            showDialog(stackpane,pane,"Datasource successfully removed!",CONFIRM);
         }
     }
 

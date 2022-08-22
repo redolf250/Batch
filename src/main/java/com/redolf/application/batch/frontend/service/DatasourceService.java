@@ -1,6 +1,6 @@
-package com.redolf.application.batch.backend.service;
+package com.redolf.application.batch.frontend.service;
 
-import com.redolf.application.batch.backend.models.*;
+import com.redolf.application.batch.frontend.models.*;
 import com.redolf.application.batch.frontend.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,7 +27,7 @@ public class DatasourceService {
         Datasource_ datasource = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            datasource = (Datasource_) session.get(Datasource_.class,datasourceId);
+            datasource = session.get(Datasource_.class,datasourceId);
             if (datasource != null){
                 session.remove(datasource);
             }else {
@@ -44,7 +44,7 @@ public class DatasourceService {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Datasource_ datasource = null;
-            datasource = (Datasource_) session.get(Datasource_.class,datasourceId);
+            datasource = session.get(Datasource_.class,datasourceId);
             transaction = session.beginTransaction();
             if (datasource != null){
                 datasource.setUsername(obj.getUsername());
@@ -71,7 +71,7 @@ public class DatasourceService {
         Datasource_ datasource = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            datasource = (Datasource_) session.get(Datasource_.class,datasourceId);
+            datasource = session.get(Datasource_.class,datasourceId);
             if (datasource != null){
                 datasource = new Datasource_(datasource.getId(), datasource.getDatabase_name(), datasource.getHostname(),
                         datasource.getPort(), datasource.getDriver_name(), datasource.getUsername(), datasource.getPassword()

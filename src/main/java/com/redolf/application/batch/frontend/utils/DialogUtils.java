@@ -10,6 +10,15 @@ import javafx.scene.text.Text;
 
 public class DialogUtils {
 
+    public static String READ_JOB_DONE = "Batch read job done, files are save at\n ";
+
+    public static String FILE_TO_SAVE = "File to save to must be specified!";
+    public static String UNSUPPORTED_FILE_FORMAT= "The software currently supports only csv and\n xml file formats.";
+    public static String VALUES_TRANSMITTED = "All batch job parameters captured,\nyou can start a batch job!";
+
+    public static String ALL_VARIABLES = "All parameters must be specified and\nshould be valid!";
+
+    public static String BATCH_TYPE_SELECT = "Batch type must be selected!";
     public static String CHOOSE_FILE="Resource must be selected to run\nbatch job! ";
     public static String HEADING = "Alert";
     public static String SEARCH_CONTENT = "Search field cannot be empty";

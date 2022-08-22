@@ -5,7 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 
-import static com.redolf.application.batch.backend.queries.Queries.*;
+import static com.redolf.application.batch.frontend.queries.Queries.*;
 import static com.redolf.application.batch.frontend.animation.CustomAnimation.chartAnimation;
 
 public class Statistics {

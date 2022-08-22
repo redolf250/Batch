@@ -1,7 +1,7 @@
 package com.redolf.application.batch.frontend.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.redolf.application.batch.backend.models.Customer;
+import com.redolf.application.batch.frontend.models.Customer;
 import com.redolf.application.batch.backend.repository.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,8 +85,8 @@ public class Driver implements Initializable {
     @FXML
     private Label welcome_label;
 
-    private double x =0;
-    private double y =0;
+    private final double x =0;
+    private final double y =0;
 
 
     @Override
