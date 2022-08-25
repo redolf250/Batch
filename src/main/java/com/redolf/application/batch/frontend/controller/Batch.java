@@ -211,6 +211,8 @@ public class Batch extends Database implements Initializable {
     public static int chunkSize;
     public static String getFile;
 
+    public static String getPassword;
+
     ObservableList<Integer> minutes = FXCollections.observableArrayList(getMinutes());
 
     ObservableList<Integer> months = FXCollections.observableArrayList(getMonths());
@@ -285,7 +287,6 @@ public class Batch extends Database implements Initializable {
         selectedFile();
     }
 
-
     private void selectedFile(){
         chosefile.setOnMouseClicked(event -> {
             FileChooser chooser = new FileChooser();
@@ -297,17 +298,6 @@ public class Batch extends Database implements Initializable {
             }else {
                 showDialog(stackpane,pane,BAD_FILE_FORMAT,HEADING);
             }
-        });
-    }
-
-    @FXML
-    private void showSaveDialog(MouseEvent event){
-
-    }
-    private void saveFile(){
-        savefilname.setOnMouseClicked(event -> {
-            FileChooser chooser = new FileChooser();
-            File s = chooser.showSaveDialog(null);
         });
     }
 
@@ -343,7 +333,7 @@ public class Batch extends Database implements Initializable {
                 values.setSkip_policy_field(Integer.valueOf(skip_policy.getText().trim()));
                 values.setMinimum_field(Long.valueOf(minimum.getText().trim()));
                 values.setMax_pool_size(Long.valueOf(maxpoolsize.getText().trim()));
-                values.setThread_field(computeThreads());
+                values.setThread_field(Integer.valueOf(gridesize.getText().trim()));
                 values.setRetry_limit_field(Long.valueOf(retry_limit.getText().trim()));
                 values.setRows_to_skip_field(Integer.valueOf(rows_to_skip.getText().trim()));
                 showDialog(stackpane,pane, VALUES_TRANSMITTED,CONFIRM);

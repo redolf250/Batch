@@ -3,6 +3,7 @@ package com.redolf.application.batch.backend.repository;
 import com.redolf.application.batch.frontend.models.Datasource_;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,10 +21,10 @@ class DatasourceRepositoryTest {
     @BeforeEach
     void setUp() {
         datasource = new Datasource_();
-        datasource.setDatabase_name("MySQL");
+        datasource.setDatabase_name("MySQL_Test");
         datasource.setHostname("localhost");
         datasource.setPort(3306);
-        datasource.setDriver_name("org.mssql.Driver");
+        datasource.setDriver_name("com.mysql.cj.jdbc.Driver");
         datasource.setSchema_name("inventory");
         datasource.setUsername("redolf");
         datasource.setPassword("0552588647");
@@ -37,6 +38,7 @@ class DatasourceRepositoryTest {
     }
 
     @Test
+    @Disabled
     void save(){
         datasourceRepository.save(datasource);
     }

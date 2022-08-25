@@ -100,7 +100,6 @@ public class TableView implements Initializable {
     @FXML
     private TableColumn<ScheduleParameters, Integer> minute;
 
-
     @FXML
     private javafx.scene.control.TableView<SummaryParameters> batch_details;
 
@@ -139,7 +138,6 @@ public class TableView implements Initializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void setSummaryBatchParameters() throws SQLException, ClassNotFoundException {
@@ -150,7 +148,6 @@ public class TableView implements Initializable {
                     resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),
                     resultSet.getString(6)));
         }
-        //connection.close();
         summary_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         file_type.setCellValueFactory(new PropertyValueFactory<>("date"));
         schema.setCellValueFactory(new PropertyValueFactory<>("schema_name"));
@@ -203,53 +200,5 @@ public class TableView implements Initializable {
         retry_limit.setCellValueFactory(new PropertyValueFactory<>("retry_limit"));
         keep_alive.setCellValueFactory(new PropertyValueFactory<>("keep_alive_time"));
         batch_parameters.setItems(listItems);
-    }
-
-    @FXML
-    private void search(ActionEvent event) throws SQLException, ClassNotFoundException {
-        listItems.removeAll();
-        if(start_date.getValue() == null ){
-            START_DATE = LocalDate.now().toString();
-        }else{
-            START_DATE = start_date.getValue().toString();
-        }
-        if (end_date.getValue() == null){
-            end_date.requestFocus();
-        }
-        END_DATE = end_date.getValue().toString();
-        String SELECT_BASED_ON_DATE = "Select * from tb_batch_parameters where date between "+START_DATE+ " and " +END_DATE+" ";
-        Connection connection = DbConnection.getConnection();
-        ResultSet resultSet = connection.createStatement().executeQuery(SELECT_BASED_ON_DATE);
-
-        while (resultSet.next()) {
-            new_listItems.add(new SearchBatch(resultSet.getLong(1), resultSet.getLong(2),
-                    resultSet.getString(3), resultSet.getLong(4),resultSet.getLong(5)
-                    ,resultSet.getLong(6), resultSet.getLong(7), resultSet.getLong(8),
-                    resultSet.getInt(9),resultSet.getLong(10), resultSet.getInt(11)
-                    ,resultSet.getInt(12),resultSet.getInt(13)));
-        }
-        System.out.println(START_DATE +" " + END_DATE);
-        for (BatchParameters p: new_listItems) {
-            System.out.println("p = " + p);
-        }
-
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        min_value.setCellValueFactory(new PropertyValueFactory<>("minimum_lines"));
-        max_value.setCellValueFactory(new PropertyValueFactory<>("maximum_lines"));
-        gride_size.setCellValueFactory(new PropertyValueFactory<>("gride_size"));
-        thread_number.setCellValueFactory(new PropertyValueFactory<>("number_of_threads"));
-        skip_rows.setCellValueFactory(new PropertyValueFactory<>("rows_to_skip"));
-        skip_rows.setCellValueFactory(new PropertyValueFactory<>("rows_to_skip"));
-        skip_policy.setCellValueFactory(new PropertyValueFactory<>("skip_policy"));
-        core_pool_size.setCellValueFactory(new PropertyValueFactory<>("core_pool_size"));
-        max_pool_size.setCellValueFactory(new PropertyValueFactory<>("max_pool_size"));
-        queue_capacity.setCellValueFactory(new PropertyValueFactory<>("queue_capacity"));
-        retry_limit.setCellValueFactory(new PropertyValueFactory<>("retry_limit"));
-        keep_alive.setCellValueFactory(new PropertyValueFactory<>("keep_alive_time"));
-        batch_parameters.setItems(new_listItems);
-    }
-
-    private void search1(MouseEvent event){
-        System.out.println("MouseEvent");
     }
 }

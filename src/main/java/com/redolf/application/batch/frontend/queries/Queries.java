@@ -33,6 +33,4 @@ public class Queries {
 
     public static String SELECT_ALL_DATASOURCE = "select * from tb_datasource";
 
-    public static String FIND_BY_ID = "select * from tb_datasource where id = ?";
-
 }

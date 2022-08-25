@@ -6,16 +6,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.JobParametersInvalidException;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.repository.JobRestartException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@SuppressWarnings("ALL")
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.redolf.application.batch.backend.repository")
-@ComponentScan(basePackages = "com")
-public class BatchApplication extends Application {
+@EntityScan(basePackages = {"com.redolf.application.batch.backend.configs.entity","com.redolf.application.batch.frontend.models"})
+@EnableJpaRepositories(basePackages = {"com.redolf.application.batch.backend.repository"
+        ,"com.redolf.application.batch.backend.configs.repository"})
+@ComponentScan(basePackages = {"com","com.redolf.application.batch.frontend.controller",
+        "com.redolf.application.batch.backend.configs"})
+@EnableBatchProcessing
+public class BatchApplication extends Application{
 
     public static ConfigurableApplicationContext applicationContext;
     public static Parent root;
@@ -28,13 +46,12 @@ public class BatchApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-      applicationContext = SpringApplication.run(BatchApplication.class);
-      FXMLLoader fxmlLoader = new FXMLLoader(BatchApplication.class.getResource("/dashboard.fxml"));
-      fxmlLoader.setControllerFactory(applicationContext::getBean);
-      Scene scene = new Scene(fxmlLoader.load());
-      stage.initStyle(StageStyle.UNDECORATED);
-      stage.setScene(scene);
-      stage.show();
+        applicationContext = SpringApplication.run(BatchApplication.class);
+        FXMLLoader fxmlLoader = new FXMLLoader(BatchApplication.class.getResource("/dashboard.fxml"));
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.show();
     }
-
 }

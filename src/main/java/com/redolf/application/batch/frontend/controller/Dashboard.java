@@ -28,13 +28,7 @@ public class Dashboard implements Initializable {
     private Pane bottom_panel;
 
     @FXML
-    private JFXButton btn_about;
-
-    @FXML
     private JFXButton btn_batch;
-
-    @FXML
-    private JFXButton btn_contact;
 
     @FXML
     private JFXButton btn_database;
@@ -43,22 +37,13 @@ public class Dashboard implements Initializable {
     private JFXButton btn_help;
 
     @FXML
-    private JFXButton btn_home;
-
-    @FXML
     private JFXButton btn_report;
-
-    @FXML
-    private JFXButton btn_settings;
-
-
 
     @FXML
     private Label ibatch_desktop;
 
     @FXML
     private Pane left_panel;
-
 
     @FXML
     private StackPane stackpane;
@@ -81,20 +66,13 @@ public class Dashboard implements Initializable {
     @FXML
     private Label connection_status;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            loadFxml(stackpane,FXML_NAME+"home.fxml");
+            loadFxml(stackpane,FXML_NAME+"main_batch.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    private void  home(ActionEvent event) throws IOException {
-        loadFxml(stackpane,FXML_NAME+"home.fxml");
     }
 
     @FXML

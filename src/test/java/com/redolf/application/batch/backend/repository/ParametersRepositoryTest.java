@@ -4,6 +4,7 @@ import com.redolf.application.batch.frontend.enums.Operation;
 import com.redolf.application.batch.frontend.models.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -103,6 +104,7 @@ class ParametersRepositoryTest {
     }
 
     @Test
+    @Disabled
     void saveParameters(){
         repository.save(parameters);
         summaryRepository.save(summary);
@@ -121,6 +123,7 @@ class ParametersRepositoryTest {
     }
 
     @Test
+    @Disabled
     void getAllParametersBetweenStartDateAndEndDate(){
         List<Parameters> listItems = repository.findAllParametersBetweenStartAndEnd(LocalDate.of(2022,8,2),LocalDate.of(2022,8,2));
         assertThat(listItems.size()).isGreaterThan(1);
