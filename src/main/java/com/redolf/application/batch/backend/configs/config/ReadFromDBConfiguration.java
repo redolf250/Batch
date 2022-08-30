@@ -42,8 +42,8 @@ public class ReadFromDBConfiguration{
     }
 
     @Bean(value = "reader_processor")
-    public CustomerProcessor<CustomerDTO> processor(){
-        return new CustomerProcessor<CustomerDTO>();
+    public CustomerProcessor processor(){
+        return new CustomerProcessor();
     }
 
     @Bean

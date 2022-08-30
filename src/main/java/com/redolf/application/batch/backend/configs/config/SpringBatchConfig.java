@@ -70,8 +70,8 @@ public class SpringBatchConfig {
     }
 
     @Bean
-    public CustomerProcessor<CustomerDTO> processor() {
-        return new CustomerProcessor<>();
+    public CustomerProcessor processor() {
+        return new CustomerProcessor();
     }
 
     @Bean
