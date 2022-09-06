@@ -3,18 +3,15 @@ package com.redolf.application.batch.frontend.controller;
 import com.jfoenix.controls.JFXButton;
 import com.redolf.application.batch.frontend.DTO.BatchParameters;
 import com.redolf.application.batch.frontend.DTO.ScheduleParameters;
-import com.redolf.application.batch.frontend.DTO.SearchBatch;
 import com.redolf.application.batch.frontend.DTO.SummaryParameters;
-import com.redolf.application.batch.frontend.connection.DbConnection;
+import com.redolf.application.batch.frontend.connection.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -133,15 +130,13 @@ public class TableView implements Initializable {
              setBatchParameters();
              setSummaryBatchParameters();
              setScheduleParam();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     private void setSummaryBatchParameters() throws SQLException, ClassNotFoundException {
-        Connection connection = DbConnection.getConnection();
+        Connection connection = DatabaseConnection.getConnection();
         ResultSet resultSet = connection.createStatement().executeQuery(SELECT_ALL_SUMMARY);
         while (resultSet.next()) {
             summaryObservableList.add(new SummaryParameters(resultSet.getInt(1), resultSet.getString(2),
@@ -158,7 +153,7 @@ public class TableView implements Initializable {
     }
 
     private void setScheduleParam() throws SQLException, ClassNotFoundException {
-        Connection connection = DbConnection.getConnection();
+        Connection connection = DatabaseConnection.getConnection();
         ResultSet resultSet = connection.createStatement().executeQuery(SELECT_ALL_SCHEDULE);
         while (resultSet.next()) {
             scheduleObservableList.add(new ScheduleParameters(resultSet.getInt(1),resultSet.getString(2),
@@ -176,7 +171,7 @@ public class TableView implements Initializable {
     }
 
     private void setBatchParameters() throws SQLException, ClassNotFoundException {
-        Connection connection = DbConnection.getConnection();
+        Connection connection = DatabaseConnection.getConnection();
         ResultSet resultSet = connection.createStatement().executeQuery(SELECT_ALL_PARAMETERS);
         while (resultSet.next()) {
             listItems.add(new BatchParameters(resultSet.getLong(1), resultSet.getLong(2),

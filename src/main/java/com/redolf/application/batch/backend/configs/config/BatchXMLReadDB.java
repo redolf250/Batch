@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Configuration
 @AllArgsConstructor
+@SuppressWarnings(ALL)
 public class BatchXMLReadDB {
 
     private JobBuilderFactory jobBuilderFactory;

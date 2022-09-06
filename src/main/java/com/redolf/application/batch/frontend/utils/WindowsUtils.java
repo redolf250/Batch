@@ -17,11 +17,15 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
+@SuppressWarnings(ALL)
 public class WindowsUtils{
 
     private static double mouseX = 0;
     private static double mouseY = 0;
     public static String FXML_NAME = "D:\\New work\\Batch\\src\\main\\resources\\";
+
     public static void translateLeft(Pane pane, AnchorPane root){
         TranslateTransition transition = new TranslateTransition(Duration.millis(500),pane);
         transition.setToX(pane.getLayoutX() + (root.getPrefWidth() - pane.getWidth()));
@@ -51,11 +55,6 @@ public class WindowsUtils{
         welcome_label.setText("Hello, Friend");
         label_subtext.setText("Enter your personal details and\n start journey with us");
     }
-
-//    public static void minimize(FontIcon fontIcon){
-//         Stage stage = (Stage) fontIcon.getScene().getWindow();
-//         stage.setIconified(true);
-//    }
 
     public static void drag(MouseEvent event, AnchorPane pane){
         Stage stage = (Stage) pane.getScene().getWindow();

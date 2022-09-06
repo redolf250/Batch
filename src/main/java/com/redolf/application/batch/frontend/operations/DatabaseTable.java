@@ -1,7 +1,7 @@
 package com.redolf.application.batch.frontend.operations;
 
 import com.redolf.application.batch.frontend.DTO.DatabaseData;
-import com.redolf.application.batch.frontend.connection.DbConnection;
+import com.redolf.application.batch.frontend.connection.DatabaseConnection;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -18,7 +18,7 @@ public class DatabaseTable {
 
     static {
         try {
-            connection = DbConnection.getConnection();
+            connection = DatabaseConnection.getConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

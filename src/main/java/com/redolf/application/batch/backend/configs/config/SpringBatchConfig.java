@@ -28,9 +28,11 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import static com.redolf.application.batch.frontend.controller.Batch.*;
+import static org.apache.commons.codec.language.bm.Rule.ALL;
 
 @Configuration
 @AllArgsConstructor
+@SuppressWarnings(ALL)
 public class SpringBatchConfig {
 
     private JobBuilderFactory jobBuilderFactory;

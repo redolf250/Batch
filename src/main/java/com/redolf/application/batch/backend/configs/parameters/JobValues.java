@@ -6,11 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
+@SuppressWarnings(ALL)
 public class JobValues {
     private Long minimum_field;
     private Long maximum_field;

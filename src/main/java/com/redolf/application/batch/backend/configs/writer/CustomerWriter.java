@@ -8,7 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Component
+@SuppressWarnings(ALL)
 public class CustomerWriter implements ItemWriter<CustomerDTO> {
 
     @Autowired

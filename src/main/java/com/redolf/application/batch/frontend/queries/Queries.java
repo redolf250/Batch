@@ -4,8 +4,6 @@ public class Queries {
     public static String SELECT_ALL_PARAMETERS = "select * from tb_batch_parameters";
     public static String SELECT_ALL_SUMMARY = "select * from tb_summary";
     public  static String SELECT_ALL_SCHEDULE = "select * from tb_schedule_task";
-    public  static String START_DATE= null;
-    public  static String END_DATE=null;
 
     public static String COUNT_ALL_CSV = "select * from tb_summary where file_type = 'csv'";
 

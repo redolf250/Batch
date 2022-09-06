@@ -1,6 +1,7 @@
 package com.redolf.application.batch.backend.configs.Partition;
 
 import com.redolf.application.batch.frontend.controller.Batch;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.batch.core.partition.support.Partitioner;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.stereotype.Component;
@@ -8,9 +9,13 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Component
+@SuppressWarnings(ALL)
 public class ColumnRangePartitioner extends Batch implements Partitioner {
 
+    @NotNull
     @Override
     public Map<String, ExecutionContext> partition(int grid_size) {
 

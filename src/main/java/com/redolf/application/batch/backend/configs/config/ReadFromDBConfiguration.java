@@ -20,9 +20,11 @@ import org.springframework.core.io.FileSystemResource;
 import javax.sql.DataSource;
 
 import static com.redolf.application.batch.frontend.controller.Batch.filePath;
+import static org.apache.commons.codec.language.bm.Rule.ALL;
 
 @Configuration
 @AllArgsConstructor
+@SuppressWarnings(ALL)
 public class ReadFromDBConfiguration{
 
     private JobBuilderFactory jobBuilderFactory;

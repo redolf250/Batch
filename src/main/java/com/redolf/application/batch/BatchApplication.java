@@ -29,7 +29,6 @@ public class BatchApplication extends Application{
     public static Parent root;
     public static Stage stage;
 
-
     public static void main(String[] args) {
         launch(args);
     }

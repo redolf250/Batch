@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import lombok.RequiredArgsConstructor;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,9 +24,9 @@ import static com.redolf.application.batch.frontend.utils.WindowsUtils.*;
 import static com.redolf.application.batch.frontend.validation.Validation.*;
 
 @Component
+@RequiredArgsConstructor
 public class Driver implements Initializable {
 
-    @Autowired
     private UserRepository userRepository;
 
     private final Customer customer = new Customer();
@@ -85,10 +86,6 @@ public class Driver implements Initializable {
     @FXML
     private Label welcome_label;
 
-    private final double x =0;
-    private final double y =0;
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         to_sign_in_page.setVisible(false);
@@ -123,33 +120,27 @@ public class Driver implements Initializable {
         press(event, anchorpane);
     }
 
-
     @FXML
     private void createUser(ActionEvent event){
 
-        if (fieldChecker(username_field,USERNAME_PATTERN)==false){
+        if (!fieldChecker(username_field, USERNAME_PATTERN)){
             username_field.requestFocus();
             noColor(username_field);
-        }else if (fieldChecker(email_field,EMAIL_PATTERN)==false){
+        }else if (!fieldChecker(email_field, EMAIL_PATTERN)){
             email_field.requestFocus();
             noColor(email_field);
-        }else if (fieldChecker_(password_field,PASSWORD_PATTERN)==false){
+        }else if (!fieldChecker_(password_field, PASSWORD_PATTERN)){
             password_field.requestFocus();
-            //noColor(password_field);
-        }else if (fieldChecker_(confirm_pass_field,PASSWORD_PATTERN)==false){
+        }else if (!fieldChecker_(confirm_pass_field, PASSWORD_PATTERN)){
             confirm_pass_field.requestFocus();
-            //noColor(confirm_pass_field);
         } else{
-                if (compareField(password_field,confirm_pass_field) == true){
-
+                if (compareField(password_field, confirm_pass_field)){
                     customer.setUsername(username_field.getText());
                     customer.setEmail(email_field.getText());
                     customer.setPassword(password_field.getText());
                     userRepository.saveAndFlush(customer);
                     translateLeft(slide_pane,anchorpane);
                     setPaneRightProperties(sign_page,to_sign_in_page,welcome_label,label_subtext);
-                }else {
-
                 }
         }
     }

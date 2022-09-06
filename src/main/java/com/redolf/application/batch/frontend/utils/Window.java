@@ -13,7 +13,6 @@ import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME
 
 public class Window {
 
-
     public static void loadWindow(String path) throws IOException {
         URL url = new File(FXML_NAME+path).toURI().toURL();
         Parent root =  FXMLLoader.load(url);

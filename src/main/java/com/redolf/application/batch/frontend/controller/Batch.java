@@ -39,8 +39,10 @@ import static com.redolf.application.batch.frontend.utils.DirectoryCreator.creat
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.FXML_NAME;
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.loadFxml;
 import static com.redolf.application.batch.frontend.validation.Validation.*;
+import static org.springframework.web.cors.CorsConfiguration.ALL;
 
 @Component
+@SuppressWarnings(ALL)
 public class Batch extends Database implements Initializable {
 
     @FXML
@@ -424,12 +426,11 @@ public class Batch extends Database implements Initializable {
                         startSingleResourceJob();
                         showDialog(stackpane,pane,BATCH_COMPLETED,CONFIRM);
                         writeJob();
-                        }catch (Exception e){
+                        }catch (Exception ignored){
                     }
                 }else if(xml_type.isSelected()){
                     writeXMLToDB();
                 }
-
             }else if (number==2){
                 System.out.println("Not implemented yet");
             }
@@ -442,8 +443,6 @@ public class Batch extends Database implements Initializable {
             if (field.getText().isEmpty()){
                 showDialog(stackpane,pane,"",HEADING);
                 break;
-            }else{
-                continue;
             }
         }
     }
@@ -461,7 +460,6 @@ public class Batch extends Database implements Initializable {
         fields.add(keepalivetime);
         fields.add(rows_to_skip);
         fields.add(retry_limit);
-        //fields.add(tablename);
         fields.add(name_field);
         return fields;
     }
@@ -486,7 +484,7 @@ public class Batch extends Database implements Initializable {
             getValues();
             thread.setText(String.valueOf(values.getThread_field()));
             showDialog(stackpane,pane,VALUES_TRANSMITTED,CONFIRM);
-        }else if(read.isSelected() && savefilname.getText().trim() != null){
+        }else if(read.isSelected()){
             filePath = createFile(savefilname.getText().trim());
             showDialog(stackpane,pane,VALUES_TRANSMITTED,CONFIRM);
         }else if(!write.isSelected() || !read.isSelected()){
@@ -509,8 +507,7 @@ public class Batch extends Database implements Initializable {
     }
 
     private int computeThreads(){
-        int result = (int) (values.getMaximum_field()/values.getGride_field());
-        return result;
+        return (int) (values.getMaximum_field()/values.getGride_field());
     }
 
     private void writeXMLToDB(){

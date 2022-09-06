@@ -14,8 +14,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.redolf.application.batch.frontend.utils.WindowsUtils.*;
+import static org.springframework.web.cors.CorsConfiguration.ALL;
 
 @Component
+@SuppressWarnings(ALL)
 public class Dashboard implements Initializable {
 
     @FXML

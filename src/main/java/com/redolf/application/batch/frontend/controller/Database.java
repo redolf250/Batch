@@ -29,7 +29,9 @@ import java.util.ResourceBundle;
 import static com.redolf.application.batch.frontend.service.DatasourceService.findByName;
 import static com.redolf.application.batch.frontend.service.DatasourceService.queryById;
 import static com.redolf.application.batch.frontend.utils.DialogUtils.*;
+import static org.springframework.web.cors.CorsConfiguration.ALL;
 
+@SuppressWarnings(ALL)
 public class Database implements Initializable {
     Datasource_ datasource = new Datasource_();
     private final DatasourceService service = new DatasourceService();
@@ -100,30 +102,29 @@ public class Database implements Initializable {
     @FXML
     private CustomTextField user_field;
 
-    ObservableList<String> db_drivers;
+    ObservableList<String> listOfDatabaseDrivers;
 
     {
         try {
-            db_drivers = FXCollections.observableArrayList(Helper.getDriverClass());
+            listOfDatabaseDrivers = FXCollections.observableArrayList(Helper.getDriverClass());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    ObservableList<DatabaseData> items;
+    ObservableList<DatabaseData> listOfTableData;
 
     {
         try {
-            items = FXCollections.observableArrayList(DatabaseTable.getData());
+            listOfTableData = FXCollections.observableArrayList(DatabaseTable.getData());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        driver_class.setItems(db_drivers);
+        driver_class.setItems(listOfDatabaseDrivers);
         getData();
     }
     private void getData(){
@@ -131,7 +132,7 @@ public class Database implements Initializable {
         name.setCellValueFactory(new PropertyValueFactory<>("database_name"));
         hostname.setCellValueFactory(new PropertyValueFactory<>("hostname"));
         port.setCellValueFactory(new PropertyValueFactory<>("port"));
-        data_items.setItems(items);
+        data_items.setItems(listOfTableData);
     }
 
     @FXML
@@ -140,7 +141,7 @@ public class Database implements Initializable {
             showDialog(stackpane,pane,EMPTY_FIELD,HEADING);
         }else{
             List results = findByName(name_field.getText().trim());
-            if (results.size()==0){
+            if (results.size() == 0){
                 validate();
                 datasource.setDatabase_name(name_field.getText());
                 datasource.setHostname(host_field.getText());
@@ -163,8 +164,7 @@ public class Database implements Initializable {
         List<CustomTextField> fields =  fieldsList();
         for (CustomTextField field: fields) {
             if (field.getText().isEmpty()){
-            }else{
-
+                break;
             }
         }
     }
@@ -213,25 +213,22 @@ public class Database implements Initializable {
             if (result.size() == 0){
                 showDialog(stackpane,pane,DATASOURCE_NOT_FOUND,HEADING);
             }else {
-                sendDataView();
+                updateUIData();
             }
         }
     }
 
-    private Datasource_ sendDataView() {
+    private void updateUIData() {
         Datasource_ datasource = DatasourceService.findById(Integer.parseInt(search_field.getText()));
             String port = String.valueOf(datasource.getPort());
             name_field.setText(datasource.getDatabase_name());
             host_field.setText(datasource.getHostname());
             user_field.setText(datasource.getUsername());
             port_field.setText(port);
-            datasource.getCreated_at();
             database_field.setText(datasource.getSchema_name());
             driver_class.setValue(datasource.getDriver_name());
             password_field.setText(datasource.getPassword());
             url_field.setText(datasource.getUrl());
-        return datasource;
-
     }
 
     @FXML
@@ -253,5 +250,4 @@ public class Database implements Initializable {
             showDialog(stackpane,pane,DATASOURCE_UPDATE,CONFIRM);
         }
     }
-
 }

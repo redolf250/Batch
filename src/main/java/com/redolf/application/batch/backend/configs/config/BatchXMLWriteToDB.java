@@ -19,7 +19,10 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @AllArgsConstructor
+@SuppressWarnings(ALL)
 public class BatchXMLWriteToDB { 
 
     private JobBuilderFactory jobBuilderFactory;

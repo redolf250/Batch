@@ -1,7 +1,7 @@
 package com.redolf.application.batch.frontend.operations;
 
 import com.redolf.application.batch.frontend.DTO.DatabaseData;
-import com.redolf.application.batch.frontend.connection.DbConnection;
+import com.redolf.application.batch.frontend.connection.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ public class Helper {
         PreparedStatement ps;
         int CSV_VALUE;
         try {
-            Connection connection = DbConnection.getConnection();
+            Connection connection = DatabaseConnection.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet resultSet = ps.executeQuery();
             CSV_VALUE = 0;

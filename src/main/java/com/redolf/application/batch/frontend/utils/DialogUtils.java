@@ -8,6 +8,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
+@SuppressWarnings(ALL)
 public class DialogUtils {
 
     public static String READ_JOB_DONE = "Batch read job done, files are save at\n ";

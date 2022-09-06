@@ -9,6 +9,9 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
+@SuppressWarnings(ALL)
 public class HibernateUtil {
 
     public static SessionFactory sessionFactory;
@@ -16,7 +19,6 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-                // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/batch?useSSL=false");

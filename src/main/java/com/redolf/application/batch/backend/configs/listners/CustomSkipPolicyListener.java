@@ -3,6 +3,9 @@ package com.redolf.application.batch.backend.configs.listners;
 import com.redolf.application.batch.backend.configs.entity.CustomerDTO;
 import org.springframework.batch.core.SkipListener;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
+@SuppressWarnings(ALL)
 public class CustomSkipPolicyListener implements SkipListener<CustomerDTO, CustomerDTO> {
 
     @Override

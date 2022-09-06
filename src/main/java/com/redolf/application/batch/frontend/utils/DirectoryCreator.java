@@ -5,7 +5,9 @@ import java.io.IOException;
 
 import static com.redolf.application.batch.frontend.controller.Batch.CSV_FILE;
 import static com.redolf.application.batch.frontend.controller.Batch.XML_FILE;
+import static org.apache.commons.codec.language.bm.Rule.ALL;
 
+@SuppressWarnings(ALL)
 public class DirectoryCreator {
 
     public static String makeDir(){

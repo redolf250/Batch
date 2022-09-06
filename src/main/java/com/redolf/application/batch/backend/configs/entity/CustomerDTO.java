@@ -8,12 +8,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Entity
 @XStreamAlias("map")
 @Table(name = "CUSTOMERS_INFO_XML")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings(ALL)
 public class CustomerDTO implements Serializable {
     @Id
     @Column(name = "CUSTOMER_ID")

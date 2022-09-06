@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
 @Component
+@SuppressWarnings(ALL)
 public class Validation {
 
     public static final String VALIDATE_DIGITS = "[0-9]+";

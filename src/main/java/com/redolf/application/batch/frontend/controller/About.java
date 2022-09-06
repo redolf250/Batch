@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 @Component
 public class About implements Initializable {
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

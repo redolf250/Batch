@@ -8,7 +8,9 @@ import java.util.List;
 
 import static com.redolf.application.batch.frontend.utils.CustomLogger.current;
 import static com.redolf.application.batch.frontend.utils.CustomLogger.logger;
+import static org.apache.commons.codec.language.bm.Rule.ALL;
 
+@SuppressWarnings(ALL)
 public class CustomWriteItemListener implements ItemWriteListener<CustomerDTO> {
 
 

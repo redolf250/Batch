@@ -9,6 +9,9 @@ import org.hibernate.query.Query;
 import java.time.LocalDate;
 import java.util.List;
 
+import static org.apache.commons.codec.language.bm.Rule.ALL;
+
+@SuppressWarnings(ALL)
 public class DatasourceService {
 
     public static void save(Datasource_ datasource){
